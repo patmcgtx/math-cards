@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69115BEF1A21905500F217B8 /* PositiveNumericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69115BEE1A21905500F217B8 /* PositiveNumericTextField.swift */; };
+		692BD44019EAB298002F671D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692BD43F19EAB298002F671D /* StringExtension.swift */; };
+		6932EB4819EB1A3E00CB2899 /* MathQuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6932EB4719EB1A3E00CB2899 /* MathQuestionTests.swift */; };
+		6932EB4919EB1A9000CB2899 /* MathQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698962FE19EAD7CA0049FC68 /* MathQuestion.swift */; };
+		6932EB4A19EB1AA500CB2899 /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972D3BC19E9D63600DF3E79 /* MathOperation.swift */; };
+		6932EB4C19EB287A00CB2899 /* MathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6932EB4B19EB287A00CB2899 /* MathHelper.swift */; };
+		6932EB4D19EB2E2800CB2899 /* MathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6932EB4B19EB287A00CB2899 /* MathHelper.swift */; };
+		6932EB4F19EB2E3600CB2899 /* MathHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6932EB4E19EB2E3600CB2899 /* MathHelperTests.swift */; };
+		693C05231A2B76D9000068BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693C05221A2B76D9000068BC /* LaunchScreen.storyboard */; };
+		693C05251A2B820B000068BC /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693C05241A2B820B000068BC /* StringExtensionTests.swift */; };
+		693C05261A2B8600000068BC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692BD43F19EAB298002F671D /* StringExtension.swift */; };
+		693EB4A119F14FC7000D9EE6 /* UpCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693EB4A019F14FC7000D9EE6 /* UpCounter.swift */; };
+		693EB4A319F1517A000D9EE6 /* UpCounterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693EB4A219F1517A000D9EE6 /* UpCounterDelegate.swift */; };
+		695A289819F49275000DDBF8 /* NumericTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A289719F49275000DDBF8 /* NumericTextFieldDelegate.swift */; };
+		6970AC491A103B88007B65E5 /* PersistentUserSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970AC481A103B88007B65E5 /* PersistentUserSelections.swift */; };
+		6972D3BA19E9D57300DF3E79 /* UserSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972D3B919E9D57300DF3E79 /* UserSelections.swift */; };
+		6972D3BD19E9D63600DF3E79 /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972D3BC19E9D63600DF3E79 /* MathOperation.swift */; };
+		6972D3BF19E9E40C00DF3E79 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972D3BE19E9E40C00DF3E79 /* AppConstants.swift */; };
+		697531111A183A2D00883E6B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697531101A183A2D00883E6B /* AboutViewController.swift */; };
+		69782D7E19F0826D003EAF7D /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69782D7D19F0826D003EAF7D /* CountdownTimer.swift */; };
+		69782D8019F0B34D003EAF7D /* CountdownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69782D7F19F0B34D003EAF7D /* CountdownDelegate.swift */; };
+		69784BA719EA296000B10688 /* NumericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784BA619EA296000B10688 /* NumericTextField.swift */; };
+		698962FF19EAD7CA0049FC68 /* MathQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698962FE19EAD7CA0049FC68 /* MathQuestion.swift */; };
+		6989630119EAD9910049FC68 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6989630019EAD9910049FC68 /* IntExtensions.swift */; };
+		6989630319EADA2F0049FC68 /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6989630219EADA2F0049FC68 /* IntExtensionsTests.swift */; };
+		6989630419EADAB40049FC68 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6989630019EAD9910049FC68 /* IntExtensions.swift */; };
+		699A8C7A1A3015400044DF7B /* RunCardsTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699A8C791A3015400044DF7B /* RunCardsTextFieldDelegate.swift */; };
+		69A2888319F4A3EE00E893C2 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A2888219F4A3EE00E893C2 /* LaunchImageViewController.swift */; };
+		69ABDBA819FEF4FE003724F7 /* InAppPurchaseClerk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABDBA719FEF4FE003724F7 /* InAppPurchaseClerk.swift */; };
+		69ABDBAA19FEF50A003724F7 /* InAppPurchaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABDBA919FEF50A003724F7 /* InAppPurchaseDelegate.swift */; };
+		69ACA82B19E86EE900305027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ACA82A19E86EE900305027 /* AppDelegate.swift */; };
+		69ACA83219E86EE900305027 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ACA83019E86EE900305027 /* Main.storyboard */; };
+		69ACA83419E86EE900305027 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69ACA83319E86EE900305027 /* Images.xcassets */; };
+		69ACA84E19E88C7600305027 /* UserSelectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ACA84D19E88C7600305027 /* UserSelectionsViewController.swift */; };
+		69B938EF19F8441C00930382 /* InAppPurchaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B938EE19F8441C00930382 /* InAppPurchaseHelper.swift */; };
+		69BB544319EEC42B00E7A218 /* HiddenCursorNumericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB544219EEC42B00E7A218 /* HiddenCursorNumericTextField.swift */; };
+		69C55D7B19FDBE0300F25520 /* PurchaseAllMathOperationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C55D7A19FDBE0300F25520 /* PurchaseAllMathOperationsController.swift */; };
+		69C55D7D19FDBE1100F25520 /* PurchaseAllMathEndingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C55D7C19FDBE1100F25520 /* PurchaseAllMathEndingsController.swift */; };
+		69CC2E0519E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */; };
+		69CD263519EA038F000ACDCF /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263419EA038F000ACDCF /* ToggleButton.swift */; };
+		69CD263819EA13BF000ACDCF /* RunCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */; };
+		69EAC91A1A22C3DB0075FFAC /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 69EAC9181A22C3DB0075FFAC /* iTunesArtwork */; };
+		69EAC91B1A22C3DB0075FFAC /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 69EAC9191A22C3DB0075FFAC /* iTunesArtwork@2x */; };
+		69F1C10E1A228E01000BEE1B /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C10D1A228E01000BEE1B /* PrivacyPolicyViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69ACA83D19E86EEA00305027 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69ACA81D19E86EE900305027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69ACA82419E86EE900305027;
+			remoteInfo = MathCards;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		69115BEE1A21905500F217B8 /* PositiveNumericTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositiveNumericTextField.swift; sourceTree = "<group>"; };
+		692BD43F19EAB298002F671D /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		6932EB4719EB1A3E00CB2899 /* MathQuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathQuestionTests.swift; sourceTree = "<group>"; };
+		6932EB4B19EB287A00CB2899 /* MathHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathHelper.swift; sourceTree = "<group>"; };
+		6932EB4E19EB2E3600CB2899 /* MathHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathHelperTests.swift; sourceTree = "<group>"; };
+		693C05221A2B76D9000068BC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		693C05241A2B820B000068BC /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		693EB4A019F14FC7000D9EE6 /* UpCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpCounter.swift; sourceTree = "<group>"; };
+		693EB4A219F1517A000D9EE6 /* UpCounterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpCounterDelegate.swift; sourceTree = "<group>"; };
+		695A289719F49275000DDBF8 /* NumericTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericTextFieldDelegate.swift; sourceTree = "<group>"; };
+		6970AC481A103B88007B65E5 /* PersistentUserSelections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentUserSelections.swift; sourceTree = "<group>"; };
+		6972D3B919E9D57300DF3E79 /* UserSelections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelections.swift; sourceTree = "<group>"; };
+		6972D3BC19E9D63600DF3E79 /* MathOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathOperation.swift; sourceTree = "<group>"; };
+		6972D3BE19E9E40C00DF3E79 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		697531101A183A2D00883E6B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		69782D7D19F0826D003EAF7D /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		69782D7F19F0B34D003EAF7D /* CountdownDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownDelegate.swift; sourceTree = "<group>"; };
+		69784BA619EA296000B10688 /* NumericTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericTextField.swift; sourceTree = "<group>"; };
+		698962FE19EAD7CA0049FC68 /* MathQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathQuestion.swift; sourceTree = "<group>"; };
+		6989630019EAD9910049FC68 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		6989630219EADA2F0049FC68 /* IntExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionsTests.swift; sourceTree = "<group>"; };
+		699A8C791A3015400044DF7B /* RunCardsTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCardsTextFieldDelegate.swift; sourceTree = "<group>"; };
+		69A2888219F4A3EE00E893C2 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImageViewController.swift; sourceTree = "<group>"; };
+		69ABDBA719FEF4FE003724F7 /* InAppPurchaseClerk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchaseClerk.swift; sourceTree = "<group>"; };
+		69ABDBA919FEF50A003724F7 /* InAppPurchaseDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchaseDelegate.swift; sourceTree = "<group>"; };
+		69ACA82519E86EE900305027 /* MathCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69ACA82919E86EE900305027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69ACA82A19E86EE900305027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		69ACA83119E86EE900305027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69ACA83319E86EE900305027 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		69ACA83C19E86EEA00305027 /* MathCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69ACA84119E86EEA00305027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69ACA84D19E88C7600305027 /* UserSelectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectionsViewController.swift; sourceTree = "<group>"; };
+		69B938EE19F8441C00930382 /* InAppPurchaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchaseHelper.swift; sourceTree = "<group>"; };
+		69BB544219EEC42B00E7A218 /* HiddenCursorNumericTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenCursorNumericTextField.swift; sourceTree = "<group>"; };
+		69C55D7A19FDBE0300F25520 /* PurchaseAllMathOperationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseAllMathOperationsController.swift; sourceTree = "<group>"; };
+		69C55D7C19FDBE1100F25520 /* PurchaseAllMathEndingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseAllMathEndingsController.swift; sourceTree = "<group>"; };
+		69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectionsTextFieldDelegate.swift; sourceTree = "<group>"; };
+		69CD263419EA038F000ACDCF /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCardsViewController.swift; sourceTree = "<group>"; };
+		69EAC9181A22C3DB0075FFAC /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		69EAC9191A22C3DB0075FFAC /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		69F1C10D1A228E01000BEE1B /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69ACA82219E86EE900305027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69ACA83919E86EEA00305027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6972D3BB19E9D58100DF3E79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6972D3B919E9D57300DF3E79 /* UserSelections.swift */,
+				6970AC481A103B88007B65E5 /* PersistentUserSelections.swift */,
+				6972D3BC19E9D63600DF3E79 /* MathOperation.swift */,
+				698962FE19EAD7CA0049FC68 /* MathQuestion.swift */,
+				6932EB4B19EB287A00CB2899 /* MathHelper.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		69ACA81C19E86EE900305027 = {
+			isa = PBXGroup;
+			children = (
+				69ACA82719E86EE900305027 /* MathCards */,
+				69ACA83F19E86EEA00305027 /* MathCardsTests */,
+				69ACA82619E86EE900305027 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69ACA82619E86EE900305027 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69ACA82519E86EE900305027 /* MathCards.app */,
+				69ACA83C19E86EEA00305027 /* MathCardsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69ACA82719E86EE900305027 /* MathCards */ = {
+			isa = PBXGroup;
+			children = (
+				69ACA84C19E88ABC00305027 /* App */,
+				69CC2E0319E8DDA000DA749B /* View Controllers */,
+				6972D3BB19E9D58100DF3E79 /* Model */,
+				69CD263619EA0393000ACDCF /* Views */,
+				69CC2E0219E8DD8300DA749B /* Extensions */,
+				69B938F019F8442000930382 /* In App Purchases */,
+			);
+			path = MathCards;
+			sourceTree = "<group>";
+		};
+		69ACA82819E86EE900305027 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69ACA82919E86EE900305027 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69ACA83F19E86EEA00305027 /* MathCardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				6989630219EADA2F0049FC68 /* IntExtensionsTests.swift */,
+				6932EB4719EB1A3E00CB2899 /* MathQuestionTests.swift */,
+				6932EB4E19EB2E3600CB2899 /* MathHelperTests.swift */,
+				693C05241A2B820B000068BC /* StringExtensionTests.swift */,
+				69ACA84019E86EEA00305027 /* Supporting Files */,
+			);
+			path = MathCardsTests;
+			sourceTree = "<group>";
+		};
+		69ACA84019E86EEA00305027 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69ACA84119E86EEA00305027 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69ACA84C19E88ABC00305027 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				69ACA82A19E86EE900305027 /* AppDelegate.swift */,
+				6972D3BE19E9E40C00DF3E79 /* AppConstants.swift */,
+				69ACA83019E86EE900305027 /* Main.storyboard */,
+				693C05221A2B76D9000068BC /* LaunchScreen.storyboard */,
+				69ACA83319E86EE900305027 /* Images.xcassets */,
+				69EAC9181A22C3DB0075FFAC /* iTunesArtwork */,
+				69EAC9191A22C3DB0075FFAC /* iTunesArtwork@2x */,
+				69ACA82819E86EE900305027 /* Supporting Files */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		69B938F019F8442000930382 /* In App Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				69ABDBA719FEF4FE003724F7 /* InAppPurchaseClerk.swift */,
+				69ABDBA919FEF50A003724F7 /* InAppPurchaseDelegate.swift */,
+				69B938EE19F8441C00930382 /* InAppPurchaseHelper.swift */,
+				69C55D7A19FDBE0300F25520 /* PurchaseAllMathOperationsController.swift */,
+				69C55D7C19FDBE1100F25520 /* PurchaseAllMathEndingsController.swift */,
+			);
+			name = "In App Purchases";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		69CC2E0219E8DD8300DA749B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				692BD43F19EAB298002F671D /* StringExtension.swift */,
+				6989630019EAD9910049FC68 /* IntExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		69CC2E0319E8DDA000DA749B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				69ACA84D19E88C7600305027 /* UserSelectionsViewController.swift */,
+				69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */,
+				69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */,
+				699A8C791A3015400044DF7B /* RunCardsTextFieldDelegate.swift */,
+				697531101A183A2D00883E6B /* AboutViewController.swift */,
+				69A2888219F4A3EE00E893C2 /* LaunchImageViewController.swift */,
+				69F1C10D1A228E01000BEE1B /* PrivacyPolicyViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		69CD263619EA0393000ACDCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				69782D7D19F0826D003EAF7D /* CountdownTimer.swift */,
+				69782D7F19F0B34D003EAF7D /* CountdownDelegate.swift */,
+				69CD263419EA038F000ACDCF /* ToggleButton.swift */,
+				69115BEE1A21905500F217B8 /* PositiveNumericTextField.swift */,
+				69BB544219EEC42B00E7A218 /* HiddenCursorNumericTextField.swift */,
+				69784BA619EA296000B10688 /* NumericTextField.swift */,
+				695A289719F49275000DDBF8 /* NumericTextFieldDelegate.swift */,
+				693EB4A019F14FC7000D9EE6 /* UpCounter.swift */,
+				693EB4A219F1517A000D9EE6 /* UpCounterDelegate.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69ACA82419E86EE900305027 /* MathCards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69ACA84619E86EEA00305027 /* Build configuration list for PBXNativeTarget "MathCards" */;
+			buildPhases = (
+				69ACA82119E86EE900305027 /* Sources */,
+				69ACA82219E86EE900305027 /* Frameworks */,
+				69ACA82319E86EE900305027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MathCards;
+			productName = MathCards;
+			productReference = 69ACA82519E86EE900305027 /* MathCards.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69ACA83B19E86EEA00305027 /* MathCardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69ACA84919E86EEA00305027 /* Build configuration list for PBXNativeTarget "MathCardsTests" */;
+			buildPhases = (
+				69ACA83819E86EEA00305027 /* Sources */,
+				69ACA83919E86EEA00305027 /* Frameworks */,
+				69ACA83A19E86EEA00305027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69ACA83E19E86EEA00305027 /* PBXTargetDependency */,
+			);
+			name = MathCardsTests;
+			productName = MathCardsTests;
+			productReference = 69ACA83C19E86EEA00305027 /* MathCardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69ACA81D19E86EE900305027 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Round Trip Software";
+				TargetAttributes = {
+					69ACA82419E86EE900305027 = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 3PCTRYV2G5;
+					};
+					69ACA83B19E86EEA00305027 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 69ACA82419E86EE900305027;
+					};
+				};
+			};
+			buildConfigurationList = 69ACA82019E86EE900305027 /* Build configuration list for PBXProject "MathCards" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 69ACA81C19E86EE900305027;
+			productRefGroup = 69ACA82619E86EE900305027 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69ACA82419E86EE900305027 /* MathCards */,
+				69ACA83B19E86EEA00305027 /* MathCardsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69ACA82319E86EE900305027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69EAC91B1A22C3DB0075FFAC /* iTunesArtwork@2x in Resources */,
+				69ACA83219E86EE900305027 /* Main.storyboard in Resources */,
+				693C05231A2B76D9000068BC /* LaunchScreen.storyboard in Resources */,
+				69ACA83419E86EE900305027 /* Images.xcassets in Resources */,
+				69EAC91A1A22C3DB0075FFAC /* iTunesArtwork in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69ACA83A19E86EEA00305027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69ACA82119E86EE900305027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69115BEF1A21905500F217B8 /* PositiveNumericTextField.swift in Sources */,
+				69ACA84E19E88C7600305027 /* UserSelectionsViewController.swift in Sources */,
+				699A8C7A1A3015400044DF7B /* RunCardsTextFieldDelegate.swift in Sources */,
+				6972D3BD19E9D63600DF3E79 /* MathOperation.swift in Sources */,
+				693EB4A119F14FC7000D9EE6 /* UpCounter.swift in Sources */,
+				69ACA82B19E86EE900305027 /* AppDelegate.swift in Sources */,
+				695A289819F49275000DDBF8 /* NumericTextFieldDelegate.swift in Sources */,
+				69B938EF19F8441C00930382 /* InAppPurchaseHelper.swift in Sources */,
+				69782D8019F0B34D003EAF7D /* CountdownDelegate.swift in Sources */,
+				69BB544319EEC42B00E7A218 /* HiddenCursorNumericTextField.swift in Sources */,
+				69ABDBAA19FEF50A003724F7 /* InAppPurchaseDelegate.swift in Sources */,
+				6972D3BF19E9E40C00DF3E79 /* AppConstants.swift in Sources */,
+				69CD263819EA13BF000ACDCF /* RunCardsViewController.swift in Sources */,
+				69CD263519EA038F000ACDCF /* ToggleButton.swift in Sources */,
+				697531111A183A2D00883E6B /* AboutViewController.swift in Sources */,
+				69F1C10E1A228E01000BEE1B /* PrivacyPolicyViewController.swift in Sources */,
+				6932EB4C19EB287A00CB2899 /* MathHelper.swift in Sources */,
+				69C55D7D19FDBE1100F25520 /* PurchaseAllMathEndingsController.swift in Sources */,
+				69784BA719EA296000B10688 /* NumericTextField.swift in Sources */,
+				692BD44019EAB298002F671D /* StringExtension.swift in Sources */,
+				693EB4A319F1517A000D9EE6 /* UpCounterDelegate.swift in Sources */,
+				69782D7E19F0826D003EAF7D /* CountdownTimer.swift in Sources */,
+				6970AC491A103B88007B65E5 /* PersistentUserSelections.swift in Sources */,
+				69C55D7B19FDBE0300F25520 /* PurchaseAllMathOperationsController.swift in Sources */,
+				6972D3BA19E9D57300DF3E79 /* UserSelections.swift in Sources */,
+				6989630119EAD9910049FC68 /* IntExtensions.swift in Sources */,
+				698962FF19EAD7CA0049FC68 /* MathQuestion.swift in Sources */,
+				69A2888319F4A3EE00E893C2 /* LaunchImageViewController.swift in Sources */,
+				69CC2E0519E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift in Sources */,
+				69ABDBA819FEF4FE003724F7 /* InAppPurchaseClerk.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69ACA83819E86EEA00305027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6932EB4F19EB2E3600CB2899 /* MathHelperTests.swift in Sources */,
+				6989630419EADAB40049FC68 /* IntExtensions.swift in Sources */,
+				6989630319EADA2F0049FC68 /* IntExtensionsTests.swift in Sources */,
+				6932EB4919EB1A9000CB2899 /* MathQuestion.swift in Sources */,
+				693C05251A2B820B000068BC /* StringExtensionTests.swift in Sources */,
+				693C05261A2B8600000068BC /* StringExtension.swift in Sources */,
+				6932EB4D19EB2E2800CB2899 /* MathHelper.swift in Sources */,
+				6932EB4819EB1A3E00CB2899 /* MathQuestionTests.swift in Sources */,
+				6932EB4A19EB1AA500CB2899 /* MathOperation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69ACA83E19E86EEA00305027 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69ACA82419E86EE900305027 /* MathCards */;
+			targetProxy = 69ACA83D19E86EEA00305027 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69ACA83019E86EE900305027 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69ACA83119E86EE900305027 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69ACA84419E86EEA00305027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69ACA84519E86EEA00305027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69ACA84719E86EEA00305027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				INFOPLIST_FILE = MathCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cb8021d1-673b-484e-b97c-241096cee018";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69ACA84819E86EEA00305027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				INFOPLIST_FILE = MathCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cb8021d1-673b-484e-b97c-241096cee018";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		69ACA84A19E86EEA00305027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MathCardsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathCards.app/MathCards";
+			};
+			name = Debug;
+		};
+		69ACA84B19E86EEA00305027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MathCardsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathCards.app/MathCards";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69ACA82019E86EE900305027 /* Build configuration list for PBXProject "MathCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69ACA84419E86EEA00305027 /* Debug */,
+				69ACA84519E86EEA00305027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69ACA84619E86EEA00305027 /* Build configuration list for PBXNativeTarget "MathCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69ACA84719E86EEA00305027 /* Debug */,
+				69ACA84819E86EEA00305027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69ACA84919E86EEA00305027 /* Build configuration list for PBXNativeTarget "MathCardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69ACA84A19E86EEA00305027 /* Debug */,
+				69ACA84B19E86EEA00305027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69ACA81D19E86EE900305027 /* Project object */;
+}
