@@ -87,7 +87,7 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
         self.cardView.layer.borderWidth = 2.0
 
         self.backgroundImage.image = UIImage(named: "bg\(Int.random(1...3))")
-        self.answerColor = self.answerField.textColor
+        self.answerColor = self.answerField.textColor!
         
         self.answerField.maxNumDigits = 6
         self.answerField.delegate = self
@@ -165,18 +165,18 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
     
     @IBAction func answerSubmitted(sender: AnyObject) {
         
-        if let submittedAnswer = self.answerField.text.toInt()? {
+        if let submittedAnswer = Int(self.answerField.text!) {
             
             // An answer has been submitted.
             // Give feedback, update stats, show next question.
             
-            self.numAnswered++
+            self.numAnswered += 1
             
             let expected = self.currentQuestion.expectedAnswer
             
             if submittedAnswer == expected {
                 self.answerCorrectImage.hidden = false
-                self.numCorrect++
+                self.numCorrect += 1
             }
             else {
                 self.answerField.text = String(expected)

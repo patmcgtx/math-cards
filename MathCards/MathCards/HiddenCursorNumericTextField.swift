@@ -10,7 +10,7 @@ import UIKit
 
 class HiddenCursorNumericTextField : NumericTextField {
     
-    override func caretRectForPosition(position: UITextPosition!) -> CGRect {
+    override func caretRectForPosition(position: UITextPosition) -> CGRect {
         return CGRectZero
     }
 

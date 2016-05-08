@@ -12,18 +12,18 @@ extension String {
     
     func stringByReplacingNSRange(nsrange:NSRange, withString replacement:String ) -> String {
 
-        let startIndex = advance(self.startIndex, nsrange.location)
-        let endIndex = advance(startIndex, nsrange.length)
-        let swiftRange = Range<String.Index>(start: startIndex, end: endIndex)
+        let startIndex = self.startIndex.advancedBy(nsrange.location)
+        let endIndex = startIndex.advancedBy(nsrange.length)
+        let swiftRange = (startIndex..<endIndex)
         
         return self.stringByReplacingCharactersInRange(swiftRange, withString: replacement)
     }
     
 
-    func matches(pattern: String, options: NSRegularExpressionOptions = nil) -> Bool {
+    func matches(pattern: String, options: NSRegularExpressionOptions) -> Bool {
         
-        let regex = NSRegularExpression(pattern: pattern, options: options, error: nil)
-        return regex?.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, self.utf16Count)) != 0
+        let regex = try? NSRegularExpression(pattern: pattern, options: options)
+        return regex?.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
     }
 
 

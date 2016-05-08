@@ -13,7 +13,7 @@ class NumericTextFieldDelegate: NSObject, UITextFieldDelegate {
     func textField(textField:UITextField, shouldChangeCharactersInRange range:NSRange, replacementString replacement:String) -> Bool {
         
         var retval = true
-        var proposedText = textField.text.stringByReplacingNSRange(range, withString: replacement)
+        let proposedText = textField.text!.stringByReplacingNSRange(range, withString: replacement)
         
         if let numericTextField = textField as? NumericTextField {
             retval = numericTextField.shouldAcceptEditingText(proposedText)

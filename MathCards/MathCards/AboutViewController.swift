@@ -28,8 +28,8 @@ class AboutViewController : UITableViewController {
     
     override func viewDidLoad() {
 
-        let shortVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String
-        self.appNameCell.textLabel.text = "\(appName) v\(shortVersion)"
+        let shortVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+        self.appNameCell.textLabel!.text = "\(appName) v\(shortVersion)"
 
     }
     
@@ -47,10 +47,10 @@ class AboutViewController : UITableViewController {
         return true
     }
     
-    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
         
         //return true
-        return action == Selector("copy")
+        return action == #selector(NSObject.copy(_:))
         
     }
     
@@ -62,7 +62,7 @@ class AboutViewController : UITableViewController {
         
         self.lastSelectedCell = tableView.cellForRowAtIndexPath(indexPath)
         
-        if tableView.canPerformAction(Selector("copy"), withSender: nil) {
+        if tableView.canPerformAction(#selector(NSObject.copy(_:)), withSender: nil) {
             self.becomeFirstResponder()
             let theMenu = UIMenuController.sharedMenuController()
             theMenu.setTargetRect(self.lastSelectedCell!.frame, inView: self.view)

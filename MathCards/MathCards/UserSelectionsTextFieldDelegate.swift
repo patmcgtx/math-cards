@@ -29,7 +29,7 @@ class UserSelectionsTextFieldDelegate: NumericTextFieldDelegate {
             numericTextField.revertTextIfInvalid()
             numericTextField.updateAppearance()
             
-            let textFieldIntValue = numericTextField.intValue?
+            let textFieldIntValue = numericTextField.intValue
             
             switch ( numericTextField.tag ) {
                 

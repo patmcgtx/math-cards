@@ -19,7 +19,7 @@ class MathHelper : NSObject {
         
         // Try counting up from the given divisor
         for divisorTry in divisor...divisorMax {
-            if !contains([0,1,dividend], divisorTry) {
+            if ![0,1,dividend].contains(divisorTry) {
                 if dividend % divisorTry == 0 {
                     return divisorTry
                 }
@@ -27,8 +27,8 @@ class MathHelper : NSObject {
         }
 
         // Try counting down from the given divisor
-        for divisorTry in reverse(divisorMin...divisor) {
-            if !contains([0,1,dividend], divisorTry) {
+        for divisorTry in Array((divisorMin...divisor).reverse()) {
+            if ![0,1,dividend].contains(divisorTry) {
                 if dividend % divisorTry == 0 {
                     return divisorTry
                 }
