@@ -83,10 +83,10 @@ class PersistentUserSelections : NSObject {
             defaults.setInteger(0, forKey: userDefaultsMinuteLimit)
         }
 
-        defaults.setBool(contains(userSelections.mathOperations, MathOperation.Addition), forKey: userDefaultsMathOperationAddition)
-        defaults.setBool(contains(userSelections.mathOperations, MathOperation.Subtraction), forKey: userDefaultsMathOperationSubtraction)
-        defaults.setBool(contains(userSelections.mathOperations, MathOperation.Multiplication), forKey: userDefaultsMathOperationMultiplication)
-        defaults.setBool(contains(userSelections.mathOperations, MathOperation.Division), forKey: userDefaultsMathOperationDivision)
+        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Addition), forKey: userDefaultsMathOperationAddition)
+        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Subtraction), forKey: userDefaultsMathOperationSubtraction)
+        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Multiplication), forKey: userDefaultsMathOperationMultiplication)
+        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Division), forKey: userDefaultsMathOperationDivision)
         
         defaults.synchronize()
     }
@@ -95,8 +95,9 @@ class PersistentUserSelections : NSObject {
     // MARK: Internal methods
     
     private var archiveFilePath : String {
-        var documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        return documentsPath.stringByAppendingPathComponent("userSelections").stringByAppendingPathExtension("archive")!
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        let documentsURL = NSURL.fileURLWithPath(documentsPath).URLByAppendingPathComponent("userSelections").URLByAppendingPathExtension("archive")
+        return documentsURL.absoluteString
     }
     
     

@@ -22,7 +22,7 @@ class ToggleButton : UIButton {
     var deselectedBorderWidth: CGFloat = 1.0
 
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         

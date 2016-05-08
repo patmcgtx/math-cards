@@ -26,10 +26,10 @@ class IntExtensionsTests: XCTestCase {
         var allInRange = true
 
         // Try 100 random numbers and check their range
-        for aTry in 1...100 {
+        for _ in 1...100 {
             
             let rand = Int.random(lower...upper)
-            println("\(rand)")
+            print("\(rand)")
             
             let inRange = rand >= lower && rand <= upper
             if !inRange {

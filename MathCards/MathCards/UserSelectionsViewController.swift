@@ -44,7 +44,7 @@ class UserSelectionsViewController: UITableViewController {
     // MARK: Lifecycle
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     
@@ -71,9 +71,9 @@ class UserSelectionsViewController: UITableViewController {
         
         // Notifications
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "needMathOps", name: notificationMathOpsEmpty, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "haveMathOps", name: notificationMathOpsNotEmpty, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "saveUserSelections", name: notificationAppGoingToBackground, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserSelectionsViewController.needMathOps), name: notificationMathOpsEmpty, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserSelectionsViewController.haveMathOps), name: notificationMathOpsNotEmpty, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserSelectionsViewController.saveUserSelections), name: notificationAppGoingToBackground, object: nil)
         
         // Text input validation rules
         
@@ -103,10 +103,10 @@ class UserSelectionsViewController: UITableViewController {
         
         // Pre-select math operators
         
-        self.additionButton.activated = contains(self.userSelections.mathOperations, MathOperation.Addition)
-        self.subtractionButton.activated = contains(self.userSelections.mathOperations, MathOperation.Subtraction)
-        self.multiplicationButton.activated = contains(self.userSelections.mathOperations, MathOperation.Multiplication)
-        self.divisionButton.activated = contains(self.userSelections.mathOperations, MathOperation.Division)
+        self.additionButton.activated = self.userSelections.mathOperations.contains(MathOperation.Addition)
+        self.subtractionButton.activated = self.userSelections.mathOperations.contains(MathOperation.Subtraction)
+        self.multiplicationButton.activated = self.userSelections.mathOperations.contains(MathOperation.Multiplication)
+        self.divisionButton.activated = self.userSelections.mathOperations.contains(MathOperation.Division)
         
         if self.userSelections.mathOperations.isEmpty {
             self.needMathOps()
@@ -153,7 +153,7 @@ class UserSelectionsViewController: UITableViewController {
         // Hide the keyboard as applicable
         
         self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.Interactive
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(UserSelectionsViewController.hideKeyboard))
         self.view.addGestureRecognizer(tapRecognizer)
         
         //self.tableView.backgroundView = nil
@@ -205,12 +205,12 @@ class UserSelectionsViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "userSelectionsToShowCards") {
-            var destController = segue.destinationViewController as RunCardsViewController
+            let destController = segue.destinationViewController as! RunCardsViewController
             destController.userSelectons = self.userSelections
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         
         var retval = true
         

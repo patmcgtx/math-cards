@@ -44,10 +44,7 @@ class MathQuestion: NSObject {
             retval = self.firstNumber * self.secondNumber
             
         case MathOperation.Division:
-            retval = self.firstNumber / self.secondNumber
-            
-        default: ()
-            
+            retval = self.firstNumber / self.secondNumber            
         }
             
         return retval
@@ -69,7 +66,7 @@ class MathQuestion: NSObject {
             let randFirst = Int.random(firstMin...firstMax)
             let randSecond = Int.random(secondMin...secondMax)
             
-            var first = randFirst
+            let first = randFirst
             var second = randSecond
             
             if randOperation == MathOperation.Division {

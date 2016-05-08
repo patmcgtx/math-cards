@@ -31,7 +31,7 @@ class UpCounter : UILabel {
     
     func increment() {
         
-        self.currentCount++
+        self.currentCount += 1
         self.updateText()
         
         if ( self.goal > 0 && self.currentCount > self.goal ) {

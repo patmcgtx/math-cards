@@ -30,7 +30,7 @@ class NumericTextField: UITextField {
     
     // MARK: Lifecycle
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         
@@ -49,10 +49,10 @@ class NumericTextField: UITextField {
         if ( !retval ) {
             
             // For non-empty text, check for numeric value and length
-            var lengthOkay = countElements(proposedValue.stripSubstring("-")) <= self.maxNumDigits
+            let lengthOkay = proposedValue.stringByReplacingOccurrencesOfString("-", withString: "").characters.count <= self.maxNumDigits
             var numericOkay = false
             
-            if let proposedIntValue = proposedValue.toInt()? {
+            if (Int(proposedValue) != nil) {
                 numericOkay = true
             }
             
@@ -79,7 +79,7 @@ class NumericTextField: UITextField {
             self.updateAppearance()
         }
         get {
-            if let retval = self.text.toInt()? {
+            if let retval = Int(self.text!) {
                 return retval
             }
             else {
@@ -95,7 +95,7 @@ class NumericTextField: UITextField {
                 
         var updatedTextIsOkay = false
         
-        if self.text.isEmpty {
+        if self.text!.isEmpty {
             updatedTextIsOkay = self.allowsEmptyValue
         }
         else {
@@ -149,7 +149,7 @@ class NumericTextField: UITextField {
     
     func updateAppearance() {
         
-        if ( self.text.isEmpty ) {
+        if ( self.text!.isEmpty ) {
             self.layer.borderColor = self.deselectedColor.CGColor
             self.layer.borderWidth = 1.0
         }
@@ -162,7 +162,7 @@ class NumericTextField: UITextField {
     
     func invertValue() {
         
-        if var numericValue = self.text.toInt()? {
+        if var numericValue = Int(self.text!) {
             numericValue = numericValue * -1
             self.text = String(numericValue)
         }
@@ -171,7 +171,7 @@ class NumericTextField: UITextField {
     
     func temporarilyHighlight() {
         self.layer.borderColor = UIColor.redColor().CGColor
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateAppearance", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(NumericTextField.updateAppearance), userInfo: nil, repeats: false)
     }
     
 }
