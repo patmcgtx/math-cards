@@ -54,7 +54,7 @@ class UserSelectionsViewController: UITableViewController {
         
         // Load saved user selections
         
-        self.userSelections = PersistentUserSelections.sharedInstance.load()
+        self.userSelections = PersistentUserSelections.shared.load()
         
         // Set up the text field delegates
         
@@ -245,7 +245,7 @@ class UserSelectionsViewController: UITableViewController {
     }
     
     func saveUserSelections() {
-        PersistentUserSelections.sharedInstance.save(self.userSelections)
+        PersistentUserSelections.shared.save(self.userSelections)
     }
     
 }

@@ -13,9 +13,7 @@ import Foundation
 //
 class PersistentUserSelections : NSObject {
     
-//    private static var __once: () = {
-//            Static.instance = PersistentUserSelections()
-//        }()
+    static let shared = PersistentUserSelections()
     
     let userDefaultsFirstNumberMin = "firstNumberMin"
     let userDefaultsFirstNumberMax = "firstNumberMax"
@@ -103,22 +101,5 @@ class PersistentUserSelections : NSObject {
         let documentsURL = URL(fileURLWithPath: documentsPath).appendingPathComponent("userSelections").appendingPathExtension("archive")
         return documentsURL.absoluteString
     }
-    
-    
-    
-//    // MARK: Singleton stuff
-//    // http://code.martinrue.com/posts/the-singleton-pattern-in-swift
-//    
-//    class var sharedInstance: PersistentUserSelections {
-//        
-//        struct Static {
-//            static var instance: PersistentUserSelections?
-//            static var token: Int = 0
-//        }
-//        
-//        _ = PersistentUserSelections.__once
-//        
-//        return Static.instance!
-//    }
     
 }
