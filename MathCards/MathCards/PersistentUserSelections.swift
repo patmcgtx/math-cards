@@ -13,6 +13,8 @@ import Foundation
 //
 class PersistentUserSelections : NSObject {
     
+    static let shared = PersistentUserSelections()
+    
     let userDefaultsFirstNumberMin = "firstNumberMin"
     let userDefaultsFirstNumberMax = "firstNumberMax"
     let userDefaultsSecondNumberMin = "secondNumberMin"
@@ -29,27 +31,27 @@ class PersistentUserSelections : NSObject {
     func load() -> UserSelections {
         
         let retval = UserSelections()
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        var defaultValue = defaults.integerForKey(userDefaultsFirstNumberMin)
+        var defaultValue = defaults.integer(forKey: userDefaultsFirstNumberMin)
         retval.firstNumberMin = defaultValue == 0 ? 1 : defaultValue
         
-        defaultValue = defaults.integerForKey(userDefaultsFirstNumberMax)
+        defaultValue = defaults.integer(forKey: userDefaultsFirstNumberMax)
         retval.firstNumberMax = defaultValue == 0 ? 10 : defaultValue
         
-        defaultValue = defaults.integerForKey(userDefaultsSecondNumberMin)
+        defaultValue = defaults.integer(forKey: userDefaultsSecondNumberMin)
         retval.secondNumberMin = defaultValue == 0 ? 1 : defaultValue
         
-        defaultValue = defaults.integerForKey(userDefaultsSecondNumberMax)
+        defaultValue = defaults.integer(forKey: userDefaultsSecondNumberMax)
         retval.secondNumberMax = defaultValue == 0 ? 10 : defaultValue
         
-        retval.cardLimit = defaults.integerForKey(userDefaultsCardLimit)
-        retval.minuteLimit = defaults.integerForKey(userDefaultsMinuteLimit)
+        retval.cardLimit = defaults.integer(forKey: userDefaultsCardLimit)
+        retval.minuteLimit = defaults.integer(forKey: userDefaultsMinuteLimit)
         
-        retval.mathOperation(MathOperation.Addition, shouldBeIncluded: defaults.boolForKey(userDefaultsMathOperationAddition))
-        retval.mathOperation(MathOperation.Subtraction, shouldBeIncluded: defaults.boolForKey(userDefaultsMathOperationSubtraction))
-        retval.mathOperation(MathOperation.Multiplication, shouldBeIncluded: defaults.boolForKey(userDefaultsMathOperationMultiplication))
-        retval.mathOperation(MathOperation.Division, shouldBeIncluded: defaults.boolForKey(userDefaultsMathOperationDivision))
+        retval.mathOperation(MathOperation.Addition, shouldBeIncluded: defaults.bool(forKey: userDefaultsMathOperationAddition))
+        retval.mathOperation(MathOperation.Subtraction, shouldBeIncluded: defaults.bool(forKey: userDefaultsMathOperationSubtraction))
+        retval.mathOperation(MathOperation.Multiplication, shouldBeIncluded: defaults.bool(forKey: userDefaultsMathOperationMultiplication))
+        retval.mathOperation(MathOperation.Division, shouldBeIncluded: defaults.bool(forKey: userDefaultsMathOperationDivision))
         
         if retval.mathOperations.isEmpty {
             retval.mathOperation(.Addition, shouldBeIncluded: true)
@@ -60,33 +62,33 @@ class PersistentUserSelections : NSObject {
     
     
     // Saves the given user selections to disk
-    func save(userSelections : UserSelections) {
+    func save(_ userSelections : UserSelections) {
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        defaults.setInteger(userSelections.firstNumberMin, forKey: userDefaultsFirstNumberMin)
-        defaults.setInteger(userSelections.firstNumberMax, forKey: userDefaultsFirstNumberMax)
-        defaults.setInteger(userSelections.secondNumberMin, forKey: userDefaultsSecondNumberMin)
-        defaults.setInteger(userSelections.secondNumberMax, forKey: userDefaultsSecondNumberMax)
+        defaults.set(userSelections.firstNumberMin, forKey: userDefaultsFirstNumberMin)
+        defaults.set(userSelections.firstNumberMax, forKey: userDefaultsFirstNumberMax)
+        defaults.set(userSelections.secondNumberMin, forKey: userDefaultsSecondNumberMin)
+        defaults.set(userSelections.secondNumberMax, forKey: userDefaultsSecondNumberMax)
         
         if let tmpVal = userSelections.cardLimit {
-            defaults.setInteger(tmpVal, forKey: userDefaultsCardLimit)
+            defaults.set(tmpVal, forKey: userDefaultsCardLimit)
         }
         else {
-            defaults.setInteger(0, forKey: userDefaultsCardLimit)
+            defaults.set(0, forKey: userDefaultsCardLimit)
         }
 
         if let tmpVal2 = userSelections.minuteLimit {
-            defaults.setInteger(tmpVal2, forKey: userDefaultsMinuteLimit)
+            defaults.set(tmpVal2, forKey: userDefaultsMinuteLimit)
         }
         else {
-            defaults.setInteger(0, forKey: userDefaultsMinuteLimit)
+            defaults.set(0, forKey: userDefaultsMinuteLimit)
         }
 
-        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Addition), forKey: userDefaultsMathOperationAddition)
-        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Subtraction), forKey: userDefaultsMathOperationSubtraction)
-        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Multiplication), forKey: userDefaultsMathOperationMultiplication)
-        defaults.setBool(userSelections.mathOperations.contains(MathOperation.Division), forKey: userDefaultsMathOperationDivision)
+        defaults.set(userSelections.mathOperations.contains(MathOperation.Addition), forKey: userDefaultsMathOperationAddition)
+        defaults.set(userSelections.mathOperations.contains(MathOperation.Subtraction), forKey: userDefaultsMathOperationSubtraction)
+        defaults.set(userSelections.mathOperations.contains(MathOperation.Multiplication), forKey: userDefaultsMathOperationMultiplication)
+        defaults.set(userSelections.mathOperations.contains(MathOperation.Division), forKey: userDefaultsMathOperationDivision)
         
         defaults.synchronize()
     }
@@ -94,29 +96,10 @@ class PersistentUserSelections : NSObject {
     
     // MARK: Internal methods
     
-    private var archiveFilePath : String {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        let documentsURL = NSURL.fileURLWithPath(documentsPath).URLByAppendingPathComponent("userSelections").URLByAppendingPathExtension("archive")
+    fileprivate var archiveFilePath : String {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let documentsURL = URL(fileURLWithPath: documentsPath).appendingPathComponent("userSelections").appendingPathExtension("archive")
         return documentsURL.absoluteString
-    }
-    
-    
-    
-    // MARK: Singleton stuff
-    // http://code.martinrue.com/posts/the-singleton-pattern-in-swift
-    
-    class var sharedInstance: PersistentUserSelections {
-        
-        struct Static {
-            static var instance: PersistentUserSelections?
-            static var token: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.token) {
-            Static.instance = PersistentUserSelections()
-        }
-        
-        return Static.instance!
     }
     
 }

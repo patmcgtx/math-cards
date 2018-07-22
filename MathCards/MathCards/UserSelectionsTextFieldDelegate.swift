@@ -22,7 +22,7 @@ class UserSelectionsTextFieldDelegate: NumericTextFieldDelegate {
     }
     
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         
         if let numericTextField = textField as? NumericTextField {
             
@@ -57,7 +57,7 @@ class UserSelectionsTextFieldDelegate: NumericTextFieldDelegate {
     }
     
     
-    override func textFieldShouldReturn(textField: UITextField) -> Bool {
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

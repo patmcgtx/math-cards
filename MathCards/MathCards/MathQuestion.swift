@@ -60,11 +60,11 @@ class MathQuestion: NSObject {
         
         if operations.count > 0 {
             
-            let randOperationIndex = Int.random(0...operations.count-1)
+            let randOperationIndex = Int.random(0..<operations.count)
             let randOperation = operations[randOperationIndex]
             
-            let randFirst = Int.random(firstMin...firstMax)
-            let randSecond = Int.random(secondMin...secondMax)
+            let randFirst = Int.random(firstMin..<firstMax+1)
+            let randSecond = Int.random(secondMin..<secondMax+1)
             
             let first = randFirst
             var second = randSecond

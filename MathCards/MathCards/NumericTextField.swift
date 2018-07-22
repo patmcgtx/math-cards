@@ -7,13 +7,48 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 //
 // This view shows a text fielf which only accepts digits and additional validations
 //
 class NumericTextField: UITextField {
     
-    private var lastSavedValue: String!
+    fileprivate var lastSavedValue: String!
     
     var maxNumDigits: Int? = 3
     var allowsEmptyValue = false
@@ -24,8 +59,8 @@ class NumericTextField: UITextField {
     var floorValue: Int?
     var ceilingValue: Int?
     
-    var selectedColor: UIColor = UIColor.blackColor()
-    var deselectedColor: UIColor = UIColor.grayColor()
+    var selectedColor: UIColor = UIColor.black
+    var deselectedColor: UIColor = UIColor.gray
 
     
     // MARK: Lifecycle
@@ -41,7 +76,7 @@ class NumericTextField: UITextField {
 
     // MARK: Delegate methods
     
-    func shouldAcceptEditingText(proposedValue: String) -> Bool {
+    func shouldAcceptEditingText(_ proposedValue: String) -> Bool {
         
         // Always allow the field to be empty or '-' (at least temporarily) for editing
         var retval = proposedValue.isEmpty || proposedValue == "-"
@@ -49,7 +84,7 @@ class NumericTextField: UITextField {
         if ( !retval ) {
             
             // For non-empty text, check for numeric value and length
-            let lengthOkay = proposedValue.stringByReplacingOccurrencesOfString("-", withString: "").characters.count <= self.maxNumDigits
+            let lengthOkay = proposedValue.replacingOccurrences(of: "-", with: "").characters.count <= self.maxNumDigits
             var numericOkay = false
             
             if (Int(proposedValue) != nil) {
@@ -150,11 +185,11 @@ class NumericTextField: UITextField {
     func updateAppearance() {
         
         if ( self.text!.isEmpty ) {
-            self.layer.borderColor = self.deselectedColor.CGColor
+            self.layer.borderColor = self.deselectedColor.cgColor
             self.layer.borderWidth = 1.0
         }
         else {
-            self.layer.borderColor = self.selectedColor.CGColor
+            self.layer.borderColor = self.selectedColor.cgColor
             self.layer.borderWidth = 2.0
         }
     }
@@ -170,8 +205,8 @@ class NumericTextField: UITextField {
     
     
     func temporarilyHighlight() {
-        self.layer.borderColor = UIColor.redColor().CGColor
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(NumericTextField.updateAppearance), userInfo: nil, repeats: false)
+        self.layer.borderColor = UIColor.red.cgColor
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(NumericTextField.updateAppearance), userInfo: nil, repeats: false)
     }
     
 }

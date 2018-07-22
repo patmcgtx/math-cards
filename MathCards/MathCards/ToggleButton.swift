@@ -13,10 +13,10 @@ import UIKit
 //
 class ToggleButton : UIButton {
     
-    private var isActivatedInternal = false
+    fileprivate var isActivatedInternal = false
     
-    var selectedColor: UIColor = UIColor.blackColor()
-    var deselectedColor: UIColor = UIColor.grayColor()
+    var selectedColor: UIColor = UIColor.black
+    var deselectedColor: UIColor = UIColor.gray
     
     var selectedBorderWidth: CGFloat = 2.0
     var deselectedBorderWidth: CGFloat = 1.0
@@ -26,7 +26,7 @@ class ToggleButton : UIButton {
         
         super.init(coder: aDecoder)
         
-        self.layer.borderColor = self.selectedColor.CGColor
+        self.layer.borderColor = self.selectedColor.cgColor
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 2.0
     }
@@ -41,13 +41,13 @@ class ToggleButton : UIButton {
             self.isActivatedInternal = isActivated
             
             if ( self.isActivatedInternal ) {
-                self.setTitleColor(self.selectedColor, forState: UIControlState.Normal)
-                self.layer.borderColor = self.selectedColor.CGColor
+                self.setTitleColor(self.selectedColor, for: UIControlState())
+                self.layer.borderColor = self.selectedColor.cgColor
                 self.layer.borderWidth = self.selectedBorderWidth
             }
             else {
-                self.setTitleColor(self.deselectedColor, forState: UIControlState.Normal)
-                self.layer.borderColor = self.deselectedColor.CGColor
+                self.setTitleColor(self.deselectedColor, for: UIControlState())
+                self.layer.borderColor = self.deselectedColor.cgColor
                 self.layer.borderWidth = self.deselectedBorderWidth
             }
         }

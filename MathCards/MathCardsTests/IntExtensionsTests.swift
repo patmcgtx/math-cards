@@ -28,7 +28,7 @@ class IntExtensionsTests: XCTestCase {
         // Try 100 random numbers and check their range
         for _ in 1...100 {
             
-            let rand = Int.random(lower...upper)
+            let rand = Int.random(lower..<upper+1)
             print("\(rand)")
             
             let inRange = rand >= lower && rand <= upper

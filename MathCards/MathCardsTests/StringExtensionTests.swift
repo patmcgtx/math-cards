@@ -29,5 +29,9 @@ class StringExtensionTests: XCTestCase {
         stripped = orig.stripSubstring("-")
         XCTAssert(stripped == "999", "Plain 999")
     }
+    
+    func testSubstringReplacement() {
+        
+    }
 
 }

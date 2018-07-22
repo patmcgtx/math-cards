@@ -10,9 +10,9 @@ import UIKit
 
 class LaunchImageViewController : UIViewController {
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         // In info.plist, also have to set UIViewControllerBasedStatusBarAppearance to NO
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation:UIStatusBarAnimation.None)
+        UIApplication.shared.setStatusBarHidden(true, with:UIStatusBarAnimation.none)
     }
     
 }

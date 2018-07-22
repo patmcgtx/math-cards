@@ -24,7 +24,7 @@ class UserSelections: NSObject {
     
     
     // Next best thing to a Set, which Swift does not have (yet?)
-    private var mathOperationsDict = [MathOperation: Bool]()
+    fileprivate var mathOperationsDict = [MathOperation: Bool]()
     
     var mathOperations: [MathOperation] {
         var retval = [MathOperation]()
@@ -37,15 +37,15 @@ class UserSelections: NSObject {
     }
     
     
-    func mathOperation(mathOp: MathOperation, shouldBeIncluded shouldInclude: Bool){
+    func mathOperation(_ mathOp: MathOperation, shouldBeIncluded shouldInclude: Bool){
         
         self.mathOperationsDict[mathOp] = shouldInclude
         
         if (self.mathOperations.isEmpty) {
-            NSNotificationCenter.defaultCenter().postNotificationName(notificationMathOpsEmpty, object: self)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: notificationMathOpsEmpty), object: self)
         }
         else {
-            NSNotificationCenter.defaultCenter().postNotificationName(notificationMathOpsNotEmpty, object: self)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: notificationMathOpsNotEmpty), object: self)
         }
     }
 
