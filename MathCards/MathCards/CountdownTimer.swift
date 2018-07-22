@@ -23,7 +23,7 @@ class CountdownTimer: UILabel {
     private var secondsLeft: Int = 0
     private var countdownSeconds: Int?
     private var timer: NSTimer?
-    private let tickSelector: Selector = "tick"
+    private let tickSelector: Selector = #selector(CountdownTimer.tick)
     
     
     // MARK: Lifecycle
@@ -40,7 +40,7 @@ class CountdownTimer: UILabel {
         self.countdownSeconds = numMins * 60
         self.secondsLeft = numMins * 60
         
-        self.text = self.secondsAsString(self.countdownSeconds?)
+        self.text = self.secondsAsString(self.countdownSeconds)
 
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self,
             selector: self.tickSelector, userInfo: nil, repeats: true)
@@ -54,7 +54,8 @@ class CountdownTimer: UILabel {
     
     func tick() {
         
-        self.text = self.secondsAsString(self.secondsLeft--)
+        self.text = self.secondsAsString(self.secondsLeft)
+        self.secondsLeft -= 1
         
         if ( self.secondsLeft < 1 ) {
             self.stop()
@@ -86,7 +87,7 @@ class CountdownTimer: UILabel {
         
         var retval: String? = ""
         
-        if let secsNonNil = seconds? {
+        if let secsNonNil = seconds {
             
             let min: Int = secsNonNil / 60
             let sec: Int = secsNonNil % 60

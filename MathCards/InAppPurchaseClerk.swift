@@ -17,7 +17,7 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
     
     
     var isReadyForPurchase: Bool {
-        return self._product? != nil
+        return self._product != nil
     }
     
     
@@ -25,7 +25,7 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
         
         var retval: String? = nil
         
-        if let product = self._product? {
+        if let product = self._product {
             retval = product.localizedDescription
         }
         
@@ -37,7 +37,7 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
         
         var retval: String? = nil
         
-        if let product = self._product? {
+        if let product = self._product {
             retval = product.localizedTitle
         }
         
@@ -49,7 +49,7 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
         
         var retval: String? = nil
         
-        if let product = self._product? {
+        if let product = self._product {
             
             let formatter = NSNumberFormatter()
             formatter.formatterBehavior = NSNumberFormatterBehavior.Behavior10_4
@@ -83,7 +83,7 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
         let productSet = NSMutableSet()
         productSet.addObject(self._productId)
         
-        let productRequest = SKProductsRequest(productIdentifiers: productSet)
+        let productRequest = SKProductsRequest(productIdentifiers: [])
         productRequest.delegate = self
         
         // Calls productsRequest(didReceiveResponse:) when done
@@ -93,7 +93,7 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
     
     func startPurchasingProduct() {
         
-        if let product = self._product? {
+        if let product = self._product {
             let payment = SKPayment(product: product)
             SKPaymentQueue.defaultQueue().addPayment(payment)
         }
@@ -103,13 +103,11 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
     
     // MARK: Delegates / observers
     
-    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
         
-        for aProductAnyObj in response.products {
-            if let aProduct = aProductAnyObj as? SKProduct {
-                if aProduct.productIdentifier == self._productId {
-                    self._product = aProduct
-                }
+        for aProduct in response.products {
+            if aProduct.productIdentifier == self._productId {
+                self._product = aProduct
             }
         }
         
@@ -124,28 +122,23 @@ class InAppPurchaseClerk: NSObject, SKProductsRequestDelegate, SKPaymentTransact
     }
     
     
-    func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
+    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
-        for txn in transactions {
+        for paymentTxn in transactions {
             
-            if let paymentTxn = txn as? SKPaymentTransaction {
+            switch paymentTxn.transactionState {
                 
-                switch paymentTxn.transactionState {
-                    
-                case .Purchased:
-                    self.delegate?.inAppPurchaseSucceeded()
-                    
-                case .Failed:
-                    self.delegate?.inAppPurchaseFailed(paymentTxn.error)
-                    
-                case .Purchasing, .Deferred:
-                    self.delegate?.inAppPurchasePending()
-                    
-                case .Restored:
-                    self.delegate?.inAppPurchaseRestored()
-
-                default: ()
-                }
+            case .Purchased:
+                self.delegate?.inAppPurchaseSucceeded()
+                
+            case .Failed:
+                self.delegate?.inAppPurchaseFailed(paymentTxn.error!)
+                
+            case .Purchasing, .Deferred:
+                self.delegate?.inAppPurchasePending()
+                
+            case .Restored:
+                self.delegate?.inAppPurchaseRestored()
             }
         }
     }

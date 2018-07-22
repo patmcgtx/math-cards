@@ -51,7 +51,7 @@ class MathQuestionTests: XCTestCase {
     func testRandomGeneration() {
         
         // Try 100 random math questions
-        for aTry in 1...100 {
+        for _ in 1...100 {
             
             let minNum = 1
             let maxNum = 10
@@ -60,7 +60,7 @@ class MathQuestionTests: XCTestCase {
             
             XCTAssert(randQuestion!.firstNumber >= minNum, "Random first floor")
             XCTAssert(randQuestion!.firstNumber <= maxNum, "Random first ceiling")
-            XCTAssert(contains(ops, randQuestion!.operation), "Random second operation")
+            XCTAssert(ops.contains(randQuestion!.operation), "Random second operation")
             XCTAssert(randQuestion!.secondNumber >= minNum, "Random second floor")
             XCTAssert(randQuestion!.secondNumber <= maxNum, "Random second ceiling")
         }

@@ -28,12 +28,12 @@ class InAppPurchaseHelper : NSObject, SKProductsRequestDelegate {
     }
     
     var areAllMathOperationsPurchased: Bool {
-        var retval = !self.isFreeVersionOfApp
+        let retval = !self.isFreeVersionOfApp
             return retval
     }
     
     var areAllMathEndingsPurchased: Bool {
-        var retval = !self.isFreeVersionOfApp
+        let retval = !self.isFreeVersionOfApp
             return retval
     }
     
@@ -45,7 +45,7 @@ class InAppPurchaseHelper : NSObject, SKProductsRequestDelegate {
         super.init()
         
         // Look up avalable IAP products from Apple
-        let prodReq = SKProductsRequest(productIdentifiers: NSSet(array: iapAllProductIdentifiers))
+        let prodReq = SKProductsRequest(productIdentifiers: NSSet(array: iapAllProductIdentifiers) as! Set<String>)
         prodReq.start()
     }
     
@@ -53,23 +53,21 @@ class InAppPurchaseHelper : NSObject, SKProductsRequestDelegate {
     // MARK: Payments
     
     func startPayingForAllMathOps() {
-        let payment = SKPayment(product: self.productAllMathOps?)
+        let payment = SKPayment(product: (self.productAllMathOps!))
         SKPaymentQueue.defaultQueue().addPayment(payment)
     }
     
     
     // MARK: Delegate
     
-    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
         
         // Apple responds with the available IAP products
-        for aProductAnyObj in response.products {
-            if let aProduct = aProductAnyObj as? SKProduct {
-                switch aProduct.productIdentifier {
-                    // Save off expected products
-                case iapProductIdAllMath: self.productAllMathOps = aProduct
-                default: ()
-                }
+        for aProduct in response.products {
+            switch aProduct.productIdentifier {
+            // Save off expected products
+            case iapProductIdAllMath: self.productAllMathOps = aProduct
+            default: ()
             }
         }
         
@@ -83,7 +81,7 @@ class InAppPurchaseHelper : NSObject, SKProductsRequestDelegate {
         
         var retval = false
             
-            if let bundleId: String?  = NSBundle.mainBundle().bundleIdentifier? {
+            if let bundleId:String = NSBundle.mainBundle().bundleIdentifier {
                 if bundleId == bundleIdFreeVersion {
                     retval = true
                 }
