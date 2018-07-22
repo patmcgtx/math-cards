@@ -226,25 +226,25 @@ class UserSelectionsViewController: UITableViewController {
     
     // MARK: Internal helpers
     
-    func hideKeyboard() {
+    @objc func hideKeyboard() {
         self.view.endEditing(false)
     }
     
     
-    func haveMathOps() {
+    @objc func haveMathOps() {
         self.startButton.isEnabled = true
         self.startButton.layer.borderColor = UIColor.black.cgColor
         self.mathOpsLabel.textColor = UIColor.black
     }
         
 
-    func needMathOps() {
+    @objc func needMathOps() {
         self.startButton.isEnabled = false
         self.startButton.layer.borderColor = UIColor.gray.cgColor
         self.mathOpsLabel.textColor = UIColor.red
     }
     
-    func saveUserSelections() {
+    @objc func saveUserSelections() {
         PersistentUserSelections.shared.save(self.userSelections)
     }
     

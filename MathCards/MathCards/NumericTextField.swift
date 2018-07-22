@@ -84,7 +84,7 @@ class NumericTextField: UITextField {
         if ( !retval ) {
             
             // For non-empty text, check for numeric value and length
-            let lengthOkay = proposedValue.replacingOccurrences(of: "-", with: "").characters.count <= self.maxNumDigits
+            let lengthOkay = proposedValue.replacingOccurrences(of: "-", with: "").count <= self.maxNumDigits
             var numericOkay = false
             
             if (Int(proposedValue) != nil) {
@@ -182,7 +182,7 @@ class NumericTextField: UITextField {
     }
     
     
-    func updateAppearance() {
+    @objc func updateAppearance() {
         
         if ( self.text!.isEmpty ) {
             self.layer.borderColor = self.deselectedColor.cgColor

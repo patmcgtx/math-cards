@@ -52,7 +52,7 @@ class CountdownTimer: UILabel {
     }
     
     
-    func tick() {
+    @objc func tick() {
         
         self.text = self.secondsAsString(self.secondsLeft)
         self.secondsLeft -= 1
