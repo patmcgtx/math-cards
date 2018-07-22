@@ -13,14 +13,14 @@ import UIKit
 //
 class RunCardsTextFieldDelegate: NumericTextFieldDelegate {
     
-    private weak var runCardsViewController: RunCardsViewController?
+    fileprivate weak var runCardsViewController: RunCardsViewController?
     
     init(runCardsVC: RunCardsViewController) {
         self.runCardsViewController = runCardsVC
     }
     
     // This is called when the Go/Return button is pushed
-    override func textFieldShouldReturn(textField: UITextField) -> Bool {
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         // Submit the answer
         self.runCardsViewController?.answerSubmitted(self)

@@ -71,9 +71,9 @@ class UserSelectionsViewController: UITableViewController {
         
         // Notifications
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserSelectionsViewController.needMathOps), name: notificationMathOpsEmpty, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserSelectionsViewController.haveMathOps), name: notificationMathOpsNotEmpty, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserSelectionsViewController.saveUserSelections), name: notificationAppGoingToBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UserSelectionsViewController.needMathOps), name: NSNotification.Name(rawValue: notificationMathOpsEmpty), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UserSelectionsViewController.haveMathOps), name: NSNotification.Name(rawValue: notificationMathOpsNotEmpty), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UserSelectionsViewController.saveUserSelections), name: NSNotification.Name(rawValue: notificationAppGoingToBackground), object: nil)
         
         // Text input validation rules
         
@@ -140,19 +140,19 @@ class UserSelectionsViewController: UITableViewController {
         // Display the background image
         
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "bg0"))
-        self.tableView.backgroundView?.contentMode = UIViewContentMode.ScaleAspectFill
+        self.tableView.backgroundView?.contentMode = UIViewContentMode.scaleAspectFill
         
         // Stylize the start button
         
-        self.startButton.layer.borderColor = UIColor.blackColor().CGColor
+        self.startButton.layer.borderColor = UIColor.black.cgColor
         self.startButton.layer.cornerRadius = 5
         self.startButton.layer.borderWidth = 2.0
-        self.startButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        self.startButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
+        self.startButton.setTitleColor(UIColor.black, for: UIControlState())
+        self.startButton.setTitleColor(UIColor.gray, for: UIControlState.disabled)
         
         // Hide the keyboard as applicable
         
-        self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.Interactive
+        self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.interactive
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(UserSelectionsViewController.hideKeyboard))
         self.view.addGestureRecognizer(tapRecognizer)
         
@@ -161,7 +161,7 @@ class UserSelectionsViewController: UITableViewController {
     }
     
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         self.saveUserSelections()
     }
     
@@ -172,45 +172,45 @@ class UserSelectionsViewController: UITableViewController {
     
     // MARK: Actions
     
-    @IBAction func toggleAddition(sender: ToggleButton) {
+    @IBAction func toggleAddition(_ sender: ToggleButton) {
         self.userSelections.mathOperation(.Addition, shouldBeIncluded:sender.toggle())
     }
     
     
-    @IBAction func toggleSubtraction(sender: ToggleButton) {
+    @IBAction func toggleSubtraction(_ sender: ToggleButton) {
         self.userSelections.mathOperation(.Subtraction, shouldBeIncluded:sender.toggle())
     }
     
     
-    @IBAction func toggleMultiplication(sender: ToggleButton) {
+    @IBAction func toggleMultiplication(_ sender: ToggleButton) {
         self.userSelections.mathOperation(.Multiplication, shouldBeIncluded:sender.toggle())
     }
     
     
-    @IBAction func toggleDivision(sender: ToggleButton) {
+    @IBAction func toggleDivision(_ sender: ToggleButton) {
         self.userSelections.mathOperation(.Division, shouldBeIncluded:sender.toggle())
     }
 
     
     // MARK: Table view delagate
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
-        forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.backgroundColor = UIColor.clearColor()
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     
     // MARK: Segues
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "userSelectionsToShowCards") {
-            let destController = segue.destinationViewController as! RunCardsViewController
+            let destController = segue.destination as! RunCardsViewController
             destController.userSelectons = self.userSelections
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
         var retval = true
         
@@ -232,16 +232,16 @@ class UserSelectionsViewController: UITableViewController {
     
     
     func haveMathOps() {
-        self.startButton.enabled = true
-        self.startButton.layer.borderColor = UIColor.blackColor().CGColor
-        self.mathOpsLabel.textColor = UIColor.blackColor()
+        self.startButton.isEnabled = true
+        self.startButton.layer.borderColor = UIColor.black.cgColor
+        self.mathOpsLabel.textColor = UIColor.black
     }
         
 
     func needMathOps() {
-        self.startButton.enabled = false
-        self.startButton.layer.borderColor = UIColor.grayColor().CGColor
-        self.mathOpsLabel.textColor = UIColor.redColor()
+        self.startButton.isEnabled = false
+        self.startButton.layer.borderColor = UIColor.gray.cgColor
+        self.mathOpsLabel.textColor = UIColor.red
     }
     
     func saveUserSelections() {

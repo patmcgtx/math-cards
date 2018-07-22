@@ -10,7 +10,7 @@ import Foundation
 
 class MathHelper : NSObject {
     
-    class func bestCleanDivisorNear(dividend:Int, divisor:Int, divisorMin:Int, divisorMax:Int) -> Int {
+    class func bestCleanDivisorNear(_ dividend:Int, divisor:Int, divisorMin:Int, divisorMax:Int) -> Int {
         
         // Avoid unseamly situations...
         if divisor < divisorMin || divisor > divisorMax {
@@ -27,7 +27,7 @@ class MathHelper : NSObject {
         }
 
         // Try counting down from the given divisor
-        for divisorTry in Array((divisorMin...divisor).reverse()) {
+        for divisorTry in Array((divisorMin...divisor).reversed()) {
             if ![0,1,dividend].contains(divisorTry) {
                 if dividend % divisorTry == 0 {
                     return divisorTry

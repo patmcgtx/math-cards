@@ -19,8 +19,8 @@ class PrivacyPolicyViewController : UIViewController {
     }
     
     
-    @IBAction func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

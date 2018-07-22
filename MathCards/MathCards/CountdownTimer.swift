@@ -20,10 +20,10 @@ class CountdownTimer: UILabel {
     
     // MARK: Private instance vars
     
-    private var secondsLeft: Int = 0
-    private var countdownSeconds: Int?
-    private var timer: NSTimer?
-    private let tickSelector: Selector = #selector(CountdownTimer.tick)
+    fileprivate var secondsLeft: Int = 0
+    fileprivate var countdownSeconds: Int?
+    fileprivate var timer: Timer?
+    fileprivate let tickSelector: Selector = #selector(CountdownTimer.tick)
     
     
     // MARK: Lifecycle
@@ -42,7 +42,7 @@ class CountdownTimer: UILabel {
         
         self.text = self.secondsAsString(self.countdownSeconds)
 
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self,
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,
             selector: self.tickSelector, userInfo: nil, repeats: true)
     }
     
@@ -83,7 +83,7 @@ class CountdownTimer: UILabel {
     
     // MARK: Private methods
     
-    private func secondsAsString(seconds: Int?) -> String? {
+    fileprivate func secondsAsString(_ seconds: Int?) -> String? {
         
         var retval: String? = ""
         
