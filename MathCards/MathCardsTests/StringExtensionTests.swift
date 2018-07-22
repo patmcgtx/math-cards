@@ -32,6 +32,10 @@ class StringExtensionTests: XCTestCase {
     
     func testSubstringReplacement() {
         
+        let initializedMiddleName = "Albert R. Quinnery"
+        let middleInitialRange = NSRange(location: 7, length: 2)
+        let fullMiddleName = initializedMiddleName.stringByReplacing(middleInitialRange, withString: "Robert")
+        XCTAssertEqual(fullMiddleName, "Albert Robert Quinnery")
     }
 
 }
