@@ -1,5 +1,5 @@
 //
-//  IntegerTextField.swift
+//  NumericTextField.swift
 //  MathCards
 //
 //  Created by Patrick McGonigle on 10/11/14.
@@ -7,41 +7,6 @@
 //
 
 import UIKit
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l <= r
-  default:
-    return !(rhs < lhs)
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l >= r
-  default:
-    return !(lhs < rhs)
-  }
-}
-
 
 //
 // This view shows a text fielf which only accepts digits and additional validations
@@ -84,7 +49,8 @@ class NumericTextField: UITextField {
         if ( !retval ) {
             
             // For non-empty text, check for numeric value and length
-            let lengthOkay = proposedValue.replacingOccurrences(of: "-", with: "").count <= self.maxNumDigits
+            let maxDigits = self.maxNumDigits ?? Int.max
+            let lengthOkay = proposedValue.replacingOccurrences(of: "-", with: "").count <= maxDigits
             var numericOkay = false
             
             if (Int(proposedValue) != nil) {
@@ -140,7 +106,8 @@ class NumericTextField: UITextField {
             if let updatedIntValue = self.intValue {
                 
                 if let ceiling = self.ceilingTextField {
-                    ceilingOkay = updatedIntValue <= ceilingTextField?.intValue
+                    let textFieldIntVal = ceilingTextField?.intValue ?? Int.max
+                    ceilingOkay = updatedIntValue <= textFieldIntVal
                     if ( !ceilingOkay ) {
                         ceiling.temporarilyHighlight()
                     }
@@ -153,7 +120,8 @@ class NumericTextField: UITextField {
                 }
                 
                 if let floor = self.floorTextField {
-                    floorOkay = updatedIntValue >= floorTextField?.intValue
+                    let textFieldFloorVal = floorTextField?.intValue ?? 0
+                    floorOkay = updatedIntValue >= textFieldFloorVal
                     if ( !floorOkay ) {
                         floor.temporarilyHighlight()
                     }

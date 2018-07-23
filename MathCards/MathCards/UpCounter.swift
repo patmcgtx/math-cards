@@ -7,30 +7,6 @@
 //
 
 import UIKit
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 // 
 // This view counts up from 1 to a given goal.
@@ -58,7 +34,9 @@ class UpCounter : UILabel {
         self.currentCount += 1
         self.updateText()
         
-        if ( self.goal > 0 && self.currentCount > self.goal ) {
+        let goalVal = self.goal ?? 0
+        
+        if ( goalVal > 0 && self.currentCount > goalVal ) {
             self.delegate?.countUpDidFinish()
         }
     }
@@ -66,11 +44,13 @@ class UpCounter : UILabel {
     
     fileprivate func updateText() {
         
-        if ( self.goal < 1 ) {
+        let goalVal = self.goal ?? 0
+        
+        if ( goalVal < 1 ) {
             self.text = "\(self.currentCount)"
         }
         else {
-            self.text = "\(self.currentCount) of \(self.goal!)"
+            self.text = "\(self.currentCount) of \(goalVal)"
         }
     }
     
