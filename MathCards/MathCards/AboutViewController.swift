@@ -28,8 +28,9 @@ class AboutViewController : UITableViewController {
     
     override func viewDidLoad() {
 
-        let shortVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        self.appNameCell.textLabel!.text = "\(appName) v\(shortVersion)"
+        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let buildNum = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+        self.appNameCell.textLabel!.text = "\(appName) v\(appVersion) #\(buildNum)"
 
     }
     
