@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		69115BEF1A21905500F217B8 /* PositiveNumericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69115BEE1A21905500F217B8 /* PositiveNumericTextField.swift */; };
 		692BD44019EAB298002F671D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692BD43F19EAB298002F671D /* StringExtension.swift */; };
+		692FC9C22130C72E00FECAE0 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692FC9C12130C72E00FECAE0 /* Setup.storyboard */; };
+		692FC9C42130D52D00FECAE0 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692FC9C32130D52D00FECAE0 /* SetupViewController.swift */; };
 		6932EB4819EB1A3E00CB2899 /* MathQuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6932EB4719EB1A3E00CB2899 /* MathQuestionTests.swift */; };
 		6932EB4919EB1A9000CB2899 /* MathQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698962FE19EAD7CA0049FC68 /* MathQuestion.swift */; };
 		6932EB4A19EB1AA500CB2899 /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972D3BC19E9D63600DF3E79 /* MathOperation.swift */; };
@@ -36,7 +38,7 @@
 		699A8C7A1A3015400044DF7B /* RunCardsTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699A8C791A3015400044DF7B /* RunCardsTextFieldDelegate.swift */; };
 		69A2888319F4A3EE00E893C2 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A2888219F4A3EE00E893C2 /* LaunchImageViewController.swift */; };
 		69ACA82B19E86EE900305027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ACA82A19E86EE900305027 /* AppDelegate.swift */; };
-		69ACA83219E86EE900305027 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ACA83019E86EE900305027 /* Main.storyboard */; };
+		69ACA83219E86EE900305027 /* Main.storyboard.old in Resources */ = {isa = PBXBuildFile; fileRef = 69ACA83019E86EE900305027 /* Main.storyboard.old */; };
 		69ACA83419E86EE900305027 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69ACA83319E86EE900305027 /* Images.xcassets */; };
 		69ACA84E19E88C7600305027 /* UserSelectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ACA84D19E88C7600305027 /* UserSelectionsViewController.swift */; };
 		69BB544319EEC42B00E7A218 /* HiddenCursorNumericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB544219EEC42B00E7A218 /* HiddenCursorNumericTextField.swift */; };
@@ -61,6 +63,8 @@
 /* Begin PBXFileReference section */
 		69115BEE1A21905500F217B8 /* PositiveNumericTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositiveNumericTextField.swift; sourceTree = "<group>"; };
 		692BD43F19EAB298002F671D /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		692FC9C12130C72E00FECAE0 /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
+		692FC9C32130D52D00FECAE0 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetupViewController.swift; path = Setup/SetupViewController.swift; sourceTree = "<group>"; };
 		6932EB4719EB1A3E00CB2899 /* MathQuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathQuestionTests.swift; sourceTree = "<group>"; };
 		6932EB4B19EB287A00CB2899 /* MathHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathHelper.swift; sourceTree = "<group>"; };
 		6932EB4E19EB2E3600CB2899 /* MathHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathHelperTests.swift; sourceTree = "<group>"; };
@@ -85,7 +89,7 @@
 		69ACA82519E86EE900305027 /* MathCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69ACA82919E86EE900305027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69ACA82A19E86EE900305027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		69ACA83119E86EE900305027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69ACA83119E86EE900305027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/Main.storyboard.old; sourceTree = "<group>"; };
 		69ACA83319E86EE900305027 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69ACA83C19E86EEA00305027 /* MathCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69ACA84119E86EEA00305027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			children = (
 				69ACA84C19E88ABC00305027 /* App */,
 				69CC2E0319E8DDA000DA749B /* View Controllers */,
+				69F0E4C12130C6F4002EF07D /* Setup */,
 				6972D3BB19E9D58100DF3E79 /* Model */,
 				69CD263619EA0393000ACDCF /* Views */,
 				69CC2E0219E8DD8300DA749B /* Extensions */,
@@ -192,7 +197,7 @@
 			children = (
 				69ACA82A19E86EE900305027 /* AppDelegate.swift */,
 				6972D3BE19E9E40C00DF3E79 /* AppConstants.swift */,
-				69ACA83019E86EE900305027 /* Main.storyboard */,
+				69ACA83019E86EE900305027 /* Main.storyboard.old */,
 				693C05221A2B76D9000068BC /* LaunchScreen.storyboard */,
 				69ACA83319E86EE900305027 /* Images.xcassets */,
 				69EAC9181A22C3DB0075FFAC /* iTunesArtwork */,
@@ -239,6 +244,15 @@
 				693EB4A219F1517A000D9EE6 /* UpCounterDelegate.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		69F0E4C12130C6F4002EF07D /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				692FC9C12130C72E00FECAE0 /* Setup.storyboard */,
+				692FC9C32130D52D00FECAE0 /* SetupViewController.swift */,
+			);
+			name = Setup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,8 +341,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				692FC9C22130C72E00FECAE0 /* Setup.storyboard in Resources */,
 				69EAC91B1A22C3DB0075FFAC /* iTunesArtwork@2x in Resources */,
-				69ACA83219E86EE900305027 /* Main.storyboard in Resources */,
+				69ACA83219E86EE900305027 /* Main.storyboard.old in Resources */,
 				693C05231A2B76D9000068BC /* LaunchScreen.storyboard in Resources */,
 				69ACA83419E86EE900305027 /* Images.xcassets in Resources */,
 				69EAC91A1A22C3DB0075FFAC /* iTunesArtwork in Resources */,
@@ -373,6 +388,7 @@
 				6989630119EAD9910049FC68 /* IntExtensions.swift in Sources */,
 				698962FF19EAD7CA0049FC68 /* MathQuestion.swift in Sources */,
 				69A2888319F4A3EE00E893C2 /* LaunchImageViewController.swift in Sources */,
+				692FC9C42130D52D00FECAE0 /* SetupViewController.swift in Sources */,
 				69CC2E0519E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,12 +420,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		69ACA83019E86EE900305027 /* Main.storyboard */ = {
+		69ACA83019E86EE900305027 /* Main.storyboard.old */ = {
 			isa = PBXVariantGroup;
 			children = (
 				69ACA83119E86EE900305027 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Main.storyboard.old;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
