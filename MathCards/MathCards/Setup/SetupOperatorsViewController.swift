@@ -8,8 +8,10 @@
 
 import UIKit
 
+/**
+ Handles the user's selection of which operators (add, subtract, etc.) they want to use.
+ */
 class SetupOperatorsViewController : UIViewController {
-
     
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: false) {

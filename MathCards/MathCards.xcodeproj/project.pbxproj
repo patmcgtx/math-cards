@@ -46,6 +46,7 @@
 		69ACA84E19E88C7600305027 /* UserSelectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ACA84D19E88C7600305027 /* UserSelectionsViewController.swift */; };
 		69BB544319EEC42B00E7A218 /* HiddenCursorNumericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB544219EEC42B00E7A218 /* HiddenCursorNumericTextField.swift */; };
 		69C8193A2132D6CC00EBB24D /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C819392132D6CC00EBB24D /* ColorExtensions.swift */; };
+		69C8193C21331B8F00EBB24D /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8193B21331B8F00EBB24D /* AppStyle.swift */; };
 		69CC2E0519E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */; };
 		69CD263519EA038F000ACDCF /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263419EA038F000ACDCF /* ToggleButton.swift */; };
 		69CD263819EA13BF000ACDCF /* RunCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */; };
@@ -69,7 +70,7 @@
 		692BD43F19EAB298002F671D /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		692FC9C32130D52D00FECAE0 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetupViewController.swift; path = Setup/SetupViewController.swift; sourceTree = "<group>"; };
 		692FC9C52130D70F00FECAE0 /* Setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Setup.storyboard; path = Setup/Setup.storyboard; sourceTree = "<group>"; };
-		692FC9C72130D77C00FECAE0 /* SetupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetupButton.swift; path = Setup/SetupButton.swift; sourceTree = "<group>"; };
+		692FC9C72130D77C00FECAE0 /* SetupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupButton.swift; sourceTree = "<group>"; };
 		692FC9C92130E53400FECAE0 /* SetupOperatorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetupOperatorsViewController.swift; path = Setup/SetupOperatorsViewController.swift; sourceTree = "<group>"; };
 		6932EB4719EB1A3E00CB2899 /* MathQuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathQuestionTests.swift; sourceTree = "<group>"; };
 		6932EB4B19EB287A00CB2899 /* MathHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathHelper.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		69ACA84D19E88C7600305027 /* UserSelectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectionsViewController.swift; sourceTree = "<group>"; };
 		69BB544219EEC42B00E7A218 /* HiddenCursorNumericTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenCursorNumericTextField.swift; sourceTree = "<group>"; };
 		69C819392132D6CC00EBB24D /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		69C8193B21331B8F00EBB24D /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectionsTextFieldDelegate.swift; sourceTree = "<group>"; };
 		69CD263419EA038F000ACDCF /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCardsViewController.swift; sourceTree = "<group>"; };
@@ -174,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				69ACA84C19E88ABC00305027 /* App */,
+				69C819382132D67E00EBB24D /* Core Extensions */,
 				69F0E4C12130C6F4002EF07D /* Setup Screen */,
-				69C819382132D67E00EBB24D /* Common */,
 				699F35172132D3FC00BD649A /* Orig */,
 			);
 			path = MathCards;
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				69ACA82A19E86EE900305027 /* AppDelegate.swift */,
+				69C8193B21331B8F00EBB24D /* AppStyle.swift */,
 				6972D3BE19E9E40C00DF3E79 /* AppConstants.swift */,
 				69ACA83019E86EE900305027 /* Main.storyboard.old */,
 				693C05221A2B76D9000068BC /* LaunchScreen.storyboard */,
@@ -224,12 +227,21 @@
 			name = App;
 			sourceTree = "<group>";
 		};
-		69C819382132D67E00EBB24D /* Common */ = {
+		69C819382132D67E00EBB24D /* Core Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				69C819392132D6CC00EBB24D /* ColorExtensions.swift */,
 			);
-			name = Common;
+			name = "Core Extensions";
+			sourceTree = "<group>";
+		};
+		69C8193D2133247000EBB24D /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				699F35152132D0EC00BD649A /* SetupDetailContainerView.swift */,
+				692FC9C72130D77C00FECAE0 /* SetupButton.swift */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 		69CC2E0219E8DD8300DA749B /* Extensions */ = {
@@ -277,8 +289,7 @@
 				692FC9C52130D70F00FECAE0 /* Setup.storyboard */,
 				692FC9C32130D52D00FECAE0 /* SetupViewController.swift */,
 				692FC9C92130E53400FECAE0 /* SetupOperatorsViewController.swift */,
-				692FC9C72130D77C00FECAE0 /* SetupButton.swift */,
-				699F35152132D0EC00BD649A /* SetupDetailContainerView.swift */,
+				69C8193D2133247000EBB24D /* Elements */,
 			);
 			name = "Setup Screen";
 			sourceTree = "<group>";
@@ -408,6 +419,7 @@
 				69CD263819EA13BF000ACDCF /* RunCardsViewController.swift in Sources */,
 				69CD263519EA038F000ACDCF /* ToggleButton.swift in Sources */,
 				697531111A183A2D00883E6B /* AboutViewController.swift in Sources */,
+				69C8193C21331B8F00EBB24D /* AppStyle.swift in Sources */,
 				69F1C10E1A228E01000BEE1B /* PrivacyPolicyViewController.swift in Sources */,
 				6932EB4C19EB287A00CB2899 /* MathHelper.swift in Sources */,
 				69784BA719EA296000B10688 /* NumericTextField.swift in Sources */,

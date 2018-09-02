@@ -23,7 +23,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xz-h8-Cyh" userLabel="Operators" customClass="SetupButton" customModule="MathCards" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xz-h8-Cyh" userLabel="Operators" customClass="SetupControlButton" customModule="MathCards" customModuleProvider="target">
                                 <rect key="frame" x="135" y="98.5" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="LGl-HY-tZB"/>
@@ -32,7 +32,7 @@
                                 <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="add"/>
                                 <connections>
-                                    <segue destination="Jfp-fb-4lK" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="v7v-Js-1uA"/>
+                                    <segue destination="Jfp-fb-4lK" kind="presentation" identifier="operators-segue" modalPresentationStyle="overFullScreen" id="v7v-Js-1uA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-Ll-Hll">
@@ -41,7 +41,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGv-WN-aDB" userLabel="Range 1" customClass="SetupButton" customModule="MathCards" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGv-WN-aDB" userLabel="Range 1" customClass="SetupControlButton" customModule="MathCards" customModuleProvider="target">
                                 <rect key="frame" x="81" y="199.5" width="38" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="bVI-1D-SeS"/>
@@ -55,11 +55,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfu-EF-dQQ" userLabel="Range 2" customClass="SetupButton" customModule="MathCards" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfu-EF-dQQ" userLabel="Range 2" customClass="SetupControlButton" customModule="MathCards" customModuleProvider="target">
                                 <rect key="frame" x="201" y="270.5" width="38" height="30"/>
                                 <state key="normal" title="1 - 10"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzf-oy-hZ6" userLabel="End condition" customClass="SetupButton" customModule="MathCards" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzf-oy-hZ6" userLabel="End condition" customClass="SetupControlButton" customModule="MathCards" customModuleProvider="target">
                                 <rect key="frame" x="115" y="340.5" width="91" height="30"/>
                                 <state key="normal" title="for 2 minutes"/>
                             </button>

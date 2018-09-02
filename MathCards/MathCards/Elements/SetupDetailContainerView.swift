@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ A base view to contain individual setup controls, e.g. operator selection, number ranges, etc.
+ Buttons on the main screen are "exploded" into a control contained in this view.
+ */
 class SetupDetailContainerView : UIView {
     
     required init?(coder aDecoder: NSCoder) {
@@ -16,9 +20,9 @@ class SetupDetailContainerView : UIView {
         
         self.layer.borderWidth = 5.0
         self.layer.cornerRadius = 30.0
-        self.layer.borderColor = UIColor.MathCards.Setup.border.cgColor
+        self.layer.borderColor = AppStyle.SetupScreen.borderColor.cgColor
         
-        self.backgroundColor = UIColor.MathCards.Setup.background
+        self.backgroundColor = AppStyle.SetupScreen.backgroundColor
     }
     
 }

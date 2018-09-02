@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Round Trip Software. All rights reserved.
 //
 
+// TODO Move all this to something like AppStyle
+
 import Foundation
 
 let appName = "Continuous Math Cards"
