@@ -180,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				69ACA84C19E88ABC00305027 /* App */,
-				69C819382132D67E00EBB24D /* Core Extensions */,
 				69F0E4C12130C6F4002EF07D /* Setup Screen */,
 				69D960DC213D953E0024C1CA /* RTS Common */,
 				699F35172132D3FC00BD649A /* Orig */,
@@ -291,6 +290,7 @@
 		69D960DC213D953E0024C1CA /* RTS Common */ = {
 			isa = PBXGroup;
 			children = (
+				69C819382132D67E00EBB24D /* Core Extensions */,
 				69D960DE213D95820024C1CA /* Segues */,
 			);
 			name = "RTS Common";

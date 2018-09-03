@@ -23,7 +23,11 @@ class SetupViewController : UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    // MARK: Segues
+}
+
+// MARK: Segues
+
+extension SetupViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -32,10 +36,10 @@ class SetupViewController : UIViewController {
         // if segue.identifier == "operators-segue"
         if let expandingSegue = segue as? ExpandToDetailSegue {
             expandingSegue.expandFrom = self.operatorsButton
-        }        
+        }
     }
     
-    // Used the IB "Exit" button to trigger this method to leaving the VC via segue
+    // TODO
     @IBAction func unwind(segue: UIStoryboardSegue) {
         
         // This is the mirror of prepare(for segue:, sender:)
@@ -48,5 +52,5 @@ class SetupViewController : UIViewController {
             collapsingSegue.collapseTo = self.operatorsButton
         }
     }
-    
 }
+

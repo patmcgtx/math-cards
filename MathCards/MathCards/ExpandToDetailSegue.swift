@@ -42,8 +42,7 @@ class ExpandToDetailSegue : UIStoryboardSegue {
                             
                             // We also want to hide the launching view to avoid the cognitive dissonance
                             // of the view "copying" itself to the full view instead of expanding itself.
-                            // TODO
-                            //                        self.launchView?.isHidden = true
+                            self.expandFrom?.alpha = 0.0
                             
             }) { (finished) in
                 
