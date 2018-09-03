@@ -12,7 +12,7 @@ import UIKit
  The initial view controller for setting up a run of the math cards.
  */
 class SetupViewController : UIViewController {
-        
+    
     @IBOutlet weak var operatorsButton: SetupControlButton!
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,15 +23,23 @@ class SetupViewController : UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
+    // MARK: Segues
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // TODO Make a case statement or something
         
-        if segue.identifier == "operators-segue" {
-            let expandingSegue = segue as? ExpandingSegue
-            expandingSegue?.launchView = self.operatorsButton
+        // if segue.identifier == "operators-segue"
+        if let explosingSegue = segue as? ExplodingSegue {
+            explosingSegue.launchView = self.operatorsButton
         }
         
+    }
+    
+    // Used the IB "Exit" button to trigger this method to leaving the VC via segue
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        // This method handles data transfer when closing a sub-control / exploded view,
+        // while ImpodingSegue handles the visuals / animation.
     }
     
 }

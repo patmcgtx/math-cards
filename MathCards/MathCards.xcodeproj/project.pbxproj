@@ -50,7 +50,8 @@
 		69CC2E0519E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */; };
 		69CD263519EA038F000ACDCF /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263419EA038F000ACDCF /* ToggleButton.swift */; };
 		69CD263819EA13BF000ACDCF /* RunCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */; };
-		69D960DB213C8F9F0024C1CA /* ExpandingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D960DA213C8F9F0024C1CA /* ExpandingSegue.swift */; };
+		69D960DB213C8F9F0024C1CA /* ExplodingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D960DA213C8F9F0024C1CA /* ExplodingSegue.swift */; };
+		69D960E0213DDFEE0024C1CA /* ImplodingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D960DF213DDFEE0024C1CA /* ImplodingSegue.swift */; };
 		69EAC91A1A22C3DB0075FFAC /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 69EAC9181A22C3DB0075FFAC /* iTunesArtwork */; };
 		69EAC91B1A22C3DB0075FFAC /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 69EAC9191A22C3DB0075FFAC /* iTunesArtwork@2x */; };
 		69F1C10E1A228E01000BEE1B /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C10D1A228E01000BEE1B /* PrivacyPolicyViewController.swift */; };
@@ -109,7 +110,8 @@
 		69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectionsTextFieldDelegate.swift; sourceTree = "<group>"; };
 		69CD263419EA038F000ACDCF /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCardsViewController.swift; sourceTree = "<group>"; };
-		69D960DA213C8F9F0024C1CA /* ExpandingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingSegue.swift; sourceTree = "<group>"; };
+		69D960DA213C8F9F0024C1CA /* ExplodingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplodingSegue.swift; sourceTree = "<group>"; };
+		69D960DF213DDFEE0024C1CA /* ImplodingSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImplodingSegue.swift; sourceTree = "<group>"; };
 		69EAC9181A22C3DB0075FFAC /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		69EAC9191A22C3DB0075FFAC /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		69F1C10D1A228E01000BEE1B /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
@@ -297,7 +299,8 @@
 		69D960DE213D95820024C1CA /* Segues */ = {
 			isa = PBXGroup;
 			children = (
-				69D960DA213C8F9F0024C1CA /* ExpandingSegue.swift */,
+				69D960DA213C8F9F0024C1CA /* ExplodingSegue.swift */,
+				69D960DF213DDFEE0024C1CA /* ImplodingSegue.swift */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -441,11 +444,12 @@
 				69C8193C21331B8F00EBB24D /* AppStyle.swift in Sources */,
 				69F1C10E1A228E01000BEE1B /* PrivacyPolicyViewController.swift in Sources */,
 				6932EB4C19EB287A00CB2899 /* MathHelper.swift in Sources */,
-				69D960DB213C8F9F0024C1CA /* ExpandingSegue.swift in Sources */,
+				69D960DB213C8F9F0024C1CA /* ExplodingSegue.swift in Sources */,
 				69784BA719EA296000B10688 /* NumericTextField.swift in Sources */,
 				692BD44019EAB298002F671D /* StringExtension.swift in Sources */,
 				693EB4A319F1517A000D9EE6 /* UpCounterDelegate.swift in Sources */,
 				69782D7E19F0826D003EAF7D /* CountdownTimer.swift in Sources */,
+				69D960E0213DDFEE0024C1CA /* ImplodingSegue.swift in Sources */,
 				6970AC491A103B88007B65E5 /* PersistentUserSelections.swift in Sources */,
 				6972D3BA19E9D57300DF3E79 /* UserSelections.swift in Sources */,
 				6989630119EAD9910049FC68 /* IntExtensions.swift in Sources */,

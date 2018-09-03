@@ -32,7 +32,7 @@
                                 <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="add"/>
                                 <connections>
-                                    <segue destination="Jfp-fb-4lK" kind="presentation" identifier="operators-segue" customClass="ExpandingSegue" customModule="MathCards" customModuleProvider="target" modalPresentationStyle="overFullScreen" id="v7v-Js-1uA"/>
+                                    <segue destination="Jfp-fb-4lK" kind="presentation" identifier="from-setup-to-operators" customClass="ExplodingSegue" customModule="MathCards" customModuleProvider="target" modalPresentationStyle="overFullScreen" id="v7v-Js-1uA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-Ll-Hll">
@@ -110,7 +110,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="dismiss:" destination="Jfp-fb-4lK" eventType="touchUpInside" id="aWL-7z-vbW"/>
+                                    <segue destination="iyk-K6-yq3" kind="unwind" identifier="from-operators-to-setup" customClass="ImplodingSegue" customModule="MathCards" customModuleProvider="target" unwindAction="unwindWithSegue:" id="cdz-yl-3vk"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1w2-I1-64u" userLabel="Container view" customClass="SetupDetailContainerView" customModule="MathCards" customModuleProvider="target">
@@ -137,6 +137,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bq-mu-dCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iyk-K6-yq3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="904" y="-137"/>
         </scene>
