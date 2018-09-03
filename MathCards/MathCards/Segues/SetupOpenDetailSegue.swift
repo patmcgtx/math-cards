@@ -17,21 +17,24 @@ class SetupOpenDetailSegue : UIStoryboardSegue {
     
     override func perform() {
         
-        // Add the destination view as a subview, temporarily
         self.source.view.addSubview(self.destination.view)
         
-        // Starting point for the animation; start small at the launch point
-        let goalDestCenter = self.destination.view.center
+        let goalCenter = self.destination.view.center
+        let goalScale = self.destination.view.transform.scaledBy(x: 1.0, y: 1.0)
+        
         self.destination.view.center = self.launchPoint
-        self.destination.view.transform = CGAffineTransform.init(scaleX: 0.05, y: 0.05)
+        self.destination.view.transform = self.destination.view.transform.scaledBy(x: 0.05, y: 0.05)
         
         UIView.animate(withDuration: AppStyle.Animations.Expand.duration, animations: {
-            // Animate expanding out to the goal state
-            self.destination.view.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
-            self.destination.view.center = goalDestCenter
+            
+            self.destination.view.transform = goalScale
+            self.destination.view.center = goalCenter
+            
         }) { (finished) in
-            // And finally, actually present the new VC
+            
+            self.destination.view.removeFromSuperview()
             self.source.present(self.destination, animated: false, completion: nil)
+            
         }
         
     }
