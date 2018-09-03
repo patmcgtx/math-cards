@@ -30,16 +30,23 @@ class SetupViewController : UIViewController {
         // TODO Make a case statement or something
         
         // if segue.identifier == "operators-segue"
-        if let explosingSegue = segue as? ExplodingSegue {
-            explosingSegue.launchView = self.operatorsButton
-        }
-        
+        if let expandingSegue = segue as? ExpandToDetailSegue {
+            expandingSegue.expandFrom = self.operatorsButton
+        }        
     }
     
     // Used the IB "Exit" button to trigger this method to leaving the VC via segue
     @IBAction func unwind(segue: UIStoryboardSegue) {
+        
+        // This is the mirror of prepare(for segue:, sender:)
+        // It happens before the segue animation is run.
+        
         // This method handles data transfer when closing a sub-control / exploded view,
         // while ImpodingSegue handles the visuals / animation.
+        
+        if let collapsingSegue = segue as? CollapseToMasterSegue {
+            collapsingSegue.collapseTo = self.operatorsButton
+        }
     }
     
 }

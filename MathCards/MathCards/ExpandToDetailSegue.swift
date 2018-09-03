@@ -9,12 +9,12 @@
 import UIKit
 
 /**
- A segue that animates an "explosion" from a "launch" view to the full destination view controller
+ TODO
  */
-class ExplodingSegue : UIStoryboardSegue {
+class ExpandToDetailSegue : UIStoryboardSegue {
     
-    /** The view from which to "launch" the expansion animation */
-    var launchView: UIView? = nil
+    // TODO
+    var expandFrom: UIView? = nil
     
     override func perform() {
         
@@ -28,7 +28,7 @@ class ExplodingSegue : UIStoryboardSegue {
             let goalScale = detailView.transform
             
             // Then actually set the views to the initial state for the animation
-            detailView.center = self.launchView?.center ?? CGPoint(x: 0, y: 0)
+            detailView.center = self.expandFrom?.center ?? CGPoint(x: 0, y: 0)
             detailView.transform = detailView.transform.scaledBy(x: 0.05, y: 0.05)
             
             UIView.animate(withDuration: AppStyle.Animations.Expand.duration,
@@ -42,6 +42,7 @@ class ExplodingSegue : UIStoryboardSegue {
                             
                             // We also want to hide the launching view to avoid the cognitive dissonance
                             // of the view "copying" itself to the full view instead of expanding itself.
+                            // TODO
                             //                        self.launchView?.isHidden = true
                             
             }) { (finished) in

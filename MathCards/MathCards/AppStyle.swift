@@ -16,7 +16,7 @@ struct AppStyle {
     struct Animations {
         
         struct Expand {
-            static let duration = 0.25
+            static let duration = 0.35
         }
         
     }
