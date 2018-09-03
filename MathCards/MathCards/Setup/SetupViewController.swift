@@ -28,8 +28,8 @@ class SetupViewController : UIViewController {
         // TODO Make a case statement or something
         
         if segue.identifier == "operators-segue" {
-            let dest = segue as? SetupOpenDetailSegue
-            dest?.launchPoint = self.operatorsButton.center
+            let expandingSegue = segue as? ExpandingSegue
+            expandingSegue?.launchPoint = self.operatorsButton.center
         }
         
     }

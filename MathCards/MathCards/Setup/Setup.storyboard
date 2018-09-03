@@ -32,7 +32,7 @@
                                 <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="add"/>
                                 <connections>
-                                    <segue destination="Jfp-fb-4lK" kind="presentation" identifier="operators-segue" customClass="SetupOpenDetailSegue" customModule="MathCards" customModuleProvider="target" modalPresentationStyle="overFullScreen" id="v7v-Js-1uA"/>
+                                    <segue destination="Jfp-fb-4lK" kind="presentation" identifier="operators-segue" customClass="ExpandingSegue" customModule="MathCards" customModuleProvider="target" modalPresentationStyle="overFullScreen" id="v7v-Js-1uA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-Ll-Hll">

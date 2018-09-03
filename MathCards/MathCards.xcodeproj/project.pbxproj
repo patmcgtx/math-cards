@@ -50,7 +50,7 @@
 		69CC2E0519E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */; };
 		69CD263519EA038F000ACDCF /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263419EA038F000ACDCF /* ToggleButton.swift */; };
 		69CD263819EA13BF000ACDCF /* RunCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */; };
-		69D960DB213C8F9F0024C1CA /* SetupOpenDetailSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D960DA213C8F9F0024C1CA /* SetupOpenDetailSegue.swift */; };
+		69D960DB213C8F9F0024C1CA /* ExpandingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D960DA213C8F9F0024C1CA /* ExpandingSegue.swift */; };
 		69EAC91A1A22C3DB0075FFAC /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 69EAC9181A22C3DB0075FFAC /* iTunesArtwork */; };
 		69EAC91B1A22C3DB0075FFAC /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 69EAC9191A22C3DB0075FFAC /* iTunesArtwork@2x */; };
 		69F1C10E1A228E01000BEE1B /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1C10D1A228E01000BEE1B /* PrivacyPolicyViewController.swift */; };
@@ -109,7 +109,7 @@
 		69CC2E0419E8E1B100DA749B /* UserSelectionsTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectionsTextFieldDelegate.swift; sourceTree = "<group>"; };
 		69CD263419EA038F000ACDCF /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		69CD263719EA13BF000ACDCF /* RunCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCardsViewController.swift; sourceTree = "<group>"; };
-		69D960DA213C8F9F0024C1CA /* SetupOpenDetailSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupOpenDetailSegue.swift; sourceTree = "<group>"; };
+		69D960DA213C8F9F0024C1CA /* ExpandingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingSegue.swift; sourceTree = "<group>"; };
 		69EAC9181A22C3DB0075FFAC /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		69EAC9191A22C3DB0075FFAC /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		69F1C10D1A228E01000BEE1B /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
@@ -133,14 +133,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		69420455213C8F4400D6A49B /* Segues */ = {
-			isa = PBXGroup;
-			children = (
-				69D960DA213C8F9F0024C1CA /* SetupOpenDetailSegue.swift */,
-			);
-			path = Segues;
-			sourceTree = "<group>";
-		};
 		6972D3BB19E9D58100DF3E79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +180,7 @@
 				69ACA84C19E88ABC00305027 /* App */,
 				69C819382132D67E00EBB24D /* Core Extensions */,
 				69F0E4C12130C6F4002EF07D /* Setup Screen */,
+				69D960DC213D953E0024C1CA /* RTS Common */,
 				699F35172132D3FC00BD649A /* Orig */,
 			);
 			path = MathCards;
@@ -245,13 +238,13 @@
 			name = "Core Extensions";
 			sourceTree = "<group>";
 		};
-		69C8193D2133247000EBB24D /* Elements */ = {
+		69C8193D2133247000EBB24D /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				699F35152132D0EC00BD649A /* SetupDetailContainerView.swift */,
 				692FC9C72130D77C00FECAE0 /* SetupButton.swift */,
 			);
-			path = Elements;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		69CC2E0219E8DD8300DA749B /* Extensions */ = {
@@ -293,14 +286,29 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		69D960DC213D953E0024C1CA /* RTS Common */ = {
+			isa = PBXGroup;
+			children = (
+				69D960DE213D95820024C1CA /* Segues */,
+			);
+			name = "RTS Common";
+			sourceTree = "<group>";
+		};
+		69D960DE213D95820024C1CA /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				69D960DA213C8F9F0024C1CA /* ExpandingSegue.swift */,
+			);
+			name = Segues;
+			sourceTree = "<group>";
+		};
 		69F0E4C12130C6F4002EF07D /* Setup Screen */ = {
 			isa = PBXGroup;
 			children = (
 				692FC9C52130D70F00FECAE0 /* Setup.storyboard */,
 				692FC9C32130D52D00FECAE0 /* SetupViewController.swift */,
 				692FC9C92130E53400FECAE0 /* SetupOperatorsViewController.swift */,
-				69420455213C8F4400D6A49B /* Segues */,
-				69C8193D2133247000EBB24D /* Elements */,
+				69C8193D2133247000EBB24D /* Views */,
 			);
 			name = "Setup Screen";
 			sourceTree = "<group>";
@@ -433,7 +441,7 @@
 				69C8193C21331B8F00EBB24D /* AppStyle.swift in Sources */,
 				69F1C10E1A228E01000BEE1B /* PrivacyPolicyViewController.swift in Sources */,
 				6932EB4C19EB287A00CB2899 /* MathHelper.swift in Sources */,
-				69D960DB213C8F9F0024C1CA /* SetupOpenDetailSegue.swift in Sources */,
+				69D960DB213C8F9F0024C1CA /* ExpandingSegue.swift in Sources */,
 				69784BA719EA296000B10688 /* NumericTextField.swift in Sources */,
 				692BD44019EAB298002F671D /* StringExtension.swift in Sources */,
 				693EB4A319F1517A000D9EE6 /* UpCounterDelegate.swift in Sources */,
