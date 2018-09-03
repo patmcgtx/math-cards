@@ -13,28 +13,30 @@ import UIKit
  */
 struct AppStyle {
     
-    /**
-     Styles for the setup screen and sub-screens.
-     */
+    struct Animations {
+        
+        struct Expand {
+            static let duration = 0.35
+        }
+        
+    }
+    
     struct SetupScreen {
         
-        /** The color of the background on the setup screens */
-        static let backgroundColor = UIColor.white
-
-        /** The color of the borders of setup buttons and containers */
-        static let borderColor = UIColor(netHex: 0x4bade9)
+        struct Border {
+            static let color = UIColor(netHex: 0x4bade9)
+            static let width : CGFloat = 5.0
+            static let corner : CGFloat = 15.0
+            static let insets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        }
         
-        // TODO
-        static let borderWidth : CGFloat = 5.0
+        struct Background {
+            static let color = UIColor.white
+        }
         
-        // TODO
-        static let cornerRadius : CGFloat = 15.0
-        
-        // TODO
-        static let edgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
-        /** The font color on the setup screen */
-        static let fontColor = UIColor(netHex: 0xea5061)
+        struct Font {
+            static let color = UIColor(netHex: 0xea5061)
+        }
     }
 
 }

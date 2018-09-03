@@ -20,13 +20,13 @@ class SetupControlButton : UIButton {
         
         super .init(coder: aDecoder)
         
-        self.layer.borderWidth = AppStyle.SetupScreen.borderWidth
-        self.layer.cornerRadius = AppStyle.SetupScreen.cornerRadius
-        self.layer.borderColor = AppStyle.SetupScreen.borderColor.cgColor
+        self.layer.borderWidth = AppStyle.SetupScreen.Border.width
+        self.layer.cornerRadius = AppStyle.SetupScreen.Border.corner
+        self.layer.borderColor = AppStyle.SetupScreen.Border.color.cgColor
         
-        self.titleEdgeInsets = AppStyle.SetupScreen.edgeInsets
-        self.setTitleColor(AppStyle.SetupScreen.fontColor, for: .normal)
+        self.titleEdgeInsets = AppStyle.SetupScreen.Border.insets
+        self.setTitleColor(AppStyle.SetupScreen.Font.color, for: .normal)
 
-        self.backgroundColor = AppStyle.SetupScreen.backgroundColor
+        self.backgroundColor = AppStyle.SetupScreen.Background.color
     }
 }

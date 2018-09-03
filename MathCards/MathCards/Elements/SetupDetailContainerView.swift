@@ -20,9 +20,9 @@ class SetupDetailContainerView : UIView {
         
         self.layer.borderWidth = 5.0
         self.layer.cornerRadius = 30.0
-        self.layer.borderColor = AppStyle.SetupScreen.borderColor.cgColor
+        self.layer.borderColor = AppStyle.SetupScreen.Border.color.cgColor
         
-        self.backgroundColor = AppStyle.SetupScreen.backgroundColor
+        self.backgroundColor = AppStyle.SetupScreen.Background.color
     }
     
 }

@@ -13,33 +13,25 @@ import UIKit
  */
 class SetupOpenDetailSegue : UIStoryboardSegue {
 
+    var launchPoint = CGPoint.init(x: 0.0, y: 0.0)
+    
     override func perform() {
         
-        // Assign the source and destination views to local variables.
-        let firstVCView = self.source.view
-        let secondVCView = self.destination.view
+        // Add the destination view as a subview, temporarily
+        self.source.view.addSubview(self.destination.view)
         
-        // Get the screen width and height.
-        let screenWidth = UIScreen.main.bounds.size.width;
-        let screenHeight = UIScreen.main.bounds.size.height
+        // Starting point for the animation; start small at the launch point
+        let goalDestCenter = self.destination.view.center
+        self.destination.view.center = self.launchPoint
+        self.destination.view.transform = CGAffineTransform.init(scaleX: 0.05, y: 0.05)
         
-        // Specify the initial position of the destination view.
-        secondVCView?.frame = CGRect(x: 0.0, y: screenHeight, width: screenWidth, height: screenHeight);
-        
-        // Access the app's key window and insert the destination view above the current (source) one.
-        let window = UIApplication.shared.keyWindow
-        window?.insertSubview(secondVCView!, aboveSubview: firstVCView!)
-        
-        // Animate the transition.
-        UIView.animate(withDuration: 0.4, animations: { () -> Void in
-
-            firstVCView?.frame = (firstVCView?.frame.offsetBy(dx: 0.0, dy: -screenHeight))!
-            secondVCView?.frame = (secondVCView?.frame.offsetBy(dx: 0.0, dy: -screenHeight))!
-            
-        }) { (Finished) -> Void in
-            self.source.present(self.destination, animated: false, completion: {
-                // nil
-            })
+        UIView.animate(withDuration: AppStyle.Animations.Expand.duration, animations: {
+            // Animate expanding out to the goal state
+            self.destination.view.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
+            self.destination.view.center = goalDestCenter
+        }) { (finished) in
+            // And finally, actually present the new VC
+            self.source.present(self.destination, animated: false, completion: nil)
         }
         
     }

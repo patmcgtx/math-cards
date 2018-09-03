@@ -12,6 +12,8 @@ import UIKit
  The initial view controller for setting up a run of the math cards.
  */
 class SetupViewController : UIViewController {
+        
+    @IBOutlet weak var operatorsButton: SetupControlButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -21,4 +23,14 @@ class SetupViewController : UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // TODO Make a case statement or something
+        
+        if segue.identifier == "operators-segue" {
+            let dest = segue as? SetupOpenDetailSegue
+            dest?.launchPoint = self.operatorsButton.center
+        }
+        
+    }
 }

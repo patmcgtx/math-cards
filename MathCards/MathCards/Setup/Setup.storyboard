@@ -89,6 +89,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eif-S5-ffI"/>
                     </view>
+                    <connections>
+                        <outlet property="operatorsButton" destination="9Xz-h8-Cyh" id="pKz-w0-bNG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K27-he-ANj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
