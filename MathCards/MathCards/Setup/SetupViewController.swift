@@ -29,8 +29,9 @@ class SetupViewController : UIViewController {
         
         if segue.identifier == "operators-segue" {
             let expandingSegue = segue as? ExpandingSegue
-            expandingSegue?.launchPoint = self.operatorsButton.center
+            expandingSegue?.launchView = self.operatorsButton
         }
         
     }
+    
 }

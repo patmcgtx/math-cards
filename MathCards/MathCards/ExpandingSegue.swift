@@ -9,13 +9,12 @@
 import UIKit
 
 /**
- A segue that animates an expansion from a "launch" point to the full destination view controller
+ A segue that animates an expansion from a "launch" view to the full destination view controller
  */
 class ExpandingSegue : UIStoryboardSegue {
-
-    /** The point from which to "launch" the expansion animation,
-        ie the point where the segue was triggered */
-    var launchPoint = CGPoint.init(x: 0.0, y: 0.0)
+    
+    /** The view from which to "launch" the expansion animation */
+    var launchView: UIView? = nil
     
     override func perform() {
         
@@ -26,7 +25,7 @@ class ExpandingSegue : UIStoryboardSegue {
         let goalScale = self.destination.view.transform
         
         // Then actually set the views to the initial state for the animation
-        self.destination.view.center = self.launchPoint
+        self.destination.view.center = self.launchView?.center ?? CGPoint(x: 0, y: 0)
         self.destination.view.transform = self.destination.view.transform.scaledBy(x: 0.05, y: 0.05)
         
         UIView.animate(withDuration: AppStyle.Animations.Expand.duration,
@@ -34,9 +33,13 @@ class ExpandingSegue : UIStoryboardSegue {
                        options: UIViewAnimationOptions.curveEaseOut,
                        animations: {
                         
-            // Animate from the orig state to the goal state
-            self.destination.view.transform = goalScale
-            self.destination.view.center = goalCenter
+                        // Animate from the orig state to the goal state
+                        self.destination.view.transform = goalScale
+                        self.destination.view.center = goalCenter
+
+                        // We also want to hide the launching view to avoid the cognitive dissonance
+                        // of the view "copying" itself to the full view instead of expanding itself.
+                        self.launchView?.isHidden = true
                         
         }) { (finished) in
             
