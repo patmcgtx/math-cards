@@ -29,5 +29,13 @@ class StringExtensionTests: XCTestCase {
         stripped = orig.stripSubstring("-")
         XCTAssert(stripped == "999", "Plain 999")
     }
+    
+    func testSubstringReplacement() {
+        
+        let initializedMiddleName = "Albert R. Quinnery"
+        let middleInitialRange = NSRange(location: 7, length: 2)
+        let fullMiddleName = initializedMiddleName.stringByReplacing(middleInitialRange, withString: "Robert")
+        XCTAssertEqual(fullMiddleName, "Albert Robert Quinnery")
+    }
 
 }

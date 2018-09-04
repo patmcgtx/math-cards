@@ -10,9 +10,9 @@ import UIKit
 
 class AboutViewController : UITableViewController {
 
-    private var appVersion: String = ""
-    private var lastSelectedCell: UITableViewCell?
-    private let tableCellTagToURL = [
+    fileprivate var appVersion: String = ""
+    fileprivate var lastSelectedCell: UITableViewCell?
+    fileprivate let tableCellTagToURL = [
         101: "https://itunes.apple.com/us/app/continuous-math-cards/id932437763?ls=1&mt=8",
         102: "http://www.roundtripsoftware.com",
         111: "http://www.roundtripsoftware.com/help/mathcards/",
@@ -28,54 +28,55 @@ class AboutViewController : UITableViewController {
     
     override func viewDidLoad() {
 
-        let shortVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-        self.appNameCell.textLabel!.text = "\(appName) v\(shortVersion)"
+        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let buildNum = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+        self.appNameCell.textLabel!.text = "\(appName) v\(appVersion) #\(buildNum)"
 
     }
     
     
     // MARK: Actions
     
-    @IBAction func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func done(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     // MARK: Table view stuff
     
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+    override func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         
         //return true
-        return action == #selector(NSObject.copy(_:))
+        return action == #selector(copy(_:))
         
     }
     
-    override func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.lastSelectedCell = tableView.cellForRowAtIndexPath(indexPath)
+        self.lastSelectedCell = tableView.cellForRow(at: indexPath)
         
-        if tableView.canPerformAction(#selector(NSObject.copy(_:)), withSender: nil) {
+        if tableView.canPerformAction(#selector(copy(_:)), withSender: nil) {
             self.becomeFirstResponder()
-            let theMenu = UIMenuController.sharedMenuController()
-            theMenu.setTargetRect(self.lastSelectedCell!.frame, inView: self.view)
+            let theMenu = UIMenuController.shared
+            theMenu.setTargetRect(self.lastSelectedCell!.frame, in: self.view)
             theMenu.setMenuVisible(true, animated: true)
         }
         
     }
     
-    override func copy(sender: AnyObject?) {
+    override func copy(_ sender: Any?) {
         
         if let tag = self.lastSelectedCell?.tag {
             if let urlToCopyToClipboard = self.tableCellTagToURL[tag] {
-                let pasteboard = UIPasteboard.generalPasteboard()
+                let pasteboard = UIPasteboard.general
                 pasteboard.string = urlToCopyToClipboard as String
             }
         }

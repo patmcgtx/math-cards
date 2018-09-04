@@ -1,5 +1,5 @@
 //
-//  IntegerTextField.swift
+//  NumericTextField.swift
 //  MathCards
 //
 //  Created by Patrick McGonigle on 10/11/14.
@@ -13,7 +13,7 @@ import UIKit
 //
 class NumericTextField: UITextField {
     
-    private var lastSavedValue: String!
+    fileprivate var lastSavedValue: String!
     
     var maxNumDigits: Int? = 3
     var allowsEmptyValue = false
@@ -24,8 +24,8 @@ class NumericTextField: UITextField {
     var floorValue: Int?
     var ceilingValue: Int?
     
-    var selectedColor: UIColor = UIColor.blackColor()
-    var deselectedColor: UIColor = UIColor.grayColor()
+    var selectedColor: UIColor = UIColor.black
+    var deselectedColor: UIColor = UIColor.gray
 
     
     // MARK: Lifecycle
@@ -41,7 +41,7 @@ class NumericTextField: UITextField {
 
     // MARK: Delegate methods
     
-    func shouldAcceptEditingText(proposedValue: String) -> Bool {
+    func shouldAcceptEditingText(_ proposedValue: String) -> Bool {
         
         // Always allow the field to be empty or '-' (at least temporarily) for editing
         var retval = proposedValue.isEmpty || proposedValue == "-"
@@ -49,7 +49,8 @@ class NumericTextField: UITextField {
         if ( !retval ) {
             
             // For non-empty text, check for numeric value and length
-            let lengthOkay = proposedValue.stringByReplacingOccurrencesOfString("-", withString: "").characters.count <= self.maxNumDigits
+            let maxDigits = self.maxNumDigits ?? Int.max
+            let lengthOkay = proposedValue.replacingOccurrences(of: "-", with: "").count <= maxDigits
             var numericOkay = false
             
             if (Int(proposedValue) != nil) {
@@ -105,7 +106,8 @@ class NumericTextField: UITextField {
             if let updatedIntValue = self.intValue {
                 
                 if let ceiling = self.ceilingTextField {
-                    ceilingOkay = updatedIntValue <= ceilingTextField?.intValue
+                    let textFieldIntVal = ceilingTextField?.intValue ?? Int.max
+                    ceilingOkay = updatedIntValue <= textFieldIntVal
                     if ( !ceilingOkay ) {
                         ceiling.temporarilyHighlight()
                     }
@@ -118,7 +120,8 @@ class NumericTextField: UITextField {
                 }
                 
                 if let floor = self.floorTextField {
-                    floorOkay = updatedIntValue >= floorTextField?.intValue
+                    let textFieldFloorVal = floorTextField?.intValue ?? 0
+                    floorOkay = updatedIntValue >= textFieldFloorVal
                     if ( !floorOkay ) {
                         floor.temporarilyHighlight()
                     }
@@ -147,14 +150,14 @@ class NumericTextField: UITextField {
     }
     
     
-    func updateAppearance() {
+    @objc func updateAppearance() {
         
         if ( self.text!.isEmpty ) {
-            self.layer.borderColor = self.deselectedColor.CGColor
+            self.layer.borderColor = self.deselectedColor.cgColor
             self.layer.borderWidth = 1.0
         }
         else {
-            self.layer.borderColor = self.selectedColor.CGColor
+            self.layer.borderColor = self.selectedColor.cgColor
             self.layer.borderWidth = 2.0
         }
     }
@@ -170,8 +173,8 @@ class NumericTextField: UITextField {
     
     
     func temporarilyHighlight() {
-        self.layer.borderColor = UIColor.redColor().CGColor
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(NumericTextField.updateAppearance), userInfo: nil, repeats: false)
+        self.layer.borderColor = UIColor.red.cgColor
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(NumericTextField.updateAppearance), userInfo: nil, repeats: false)
     }
     
 }

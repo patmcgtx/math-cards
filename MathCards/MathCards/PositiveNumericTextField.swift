@@ -14,8 +14,10 @@ class PositiveNumericTextField : NumericTextField {
 
         super.revertTextIfInvalid()
         
-        if self.intValue < 1 {
-            self.text = ""
+        if let intVal = self.intValue {
+            if intVal < 1 {
+                self.text = ""
+            }
         }
     }
     

@@ -10,10 +10,10 @@ import UIKit
 
 class NumericTextFieldDelegate: NSObject, UITextFieldDelegate {
         
-    func textField(textField:UITextField, shouldChangeCharactersInRange range:NSRange, replacementString replacement:String) -> Bool {
+    func textField(_ textField:UITextField, shouldChangeCharactersIn range:NSRange, replacementString replacement:String) -> Bool {
         
         var retval = true
-        let proposedText = textField.text!.stringByReplacingNSRange(range, withString: replacement)
+        let proposedText = textField.text!.stringByReplacing(range, withString: replacement)        
         
         if let numericTextField = textField as? NumericTextField {
             retval = numericTextField.shouldAcceptEditingText(proposedText)
@@ -22,8 +22,8 @@ class NumericTextFieldDelegate: NSObject, UITextFieldDelegate {
         return retval
     }
 
-    // This allow the Go/Return button the keyboard to function
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    // This allows the Go/Return button on the keyboard to function
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
         

@@ -1,5 +1,5 @@
 //
-//  NSRangeExtension.swift
+//  StringExtension.swift
 //  MathCards
 //
 //  Created by Patrick McGonigle on 10/12/14.
@@ -10,27 +10,23 @@ import Foundation
 
 extension String {
     
-    func stringByReplacingNSRange(nsrange:NSRange, withString replacement:String ) -> String {
-
-        let startIndex = self.startIndex.advancedBy(nsrange.location)
-        let endIndex = startIndex.advancedBy(nsrange.length)
-        let swiftRange = (startIndex..<endIndex)
-        
-        return self.stringByReplacingCharactersInRange(swiftRange, withString: replacement)
+    func stringByReplacing(_ nsrange:NSRange, withString replacement:String ) -> String {
+        let range = Range(nsrange, in: self)!
+        return self.replacingCharacters(in: range, with: replacement)
     }
     
 
-    func matches(pattern: String, options: NSRegularExpressionOptions) -> Bool {
+    func matches(_ pattern: String, options: NSRegularExpression.Options) -> Bool {
         
         let regex = try? NSRegularExpression(pattern: pattern, options: options)
-        return regex?.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
+        return regex?.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
     }
 
 
-    func stripSubstring(substringToStrip: String) -> String {
+    func stripSubstring(_ substringToStrip: String) -> String {
         
         let selfNSString = self as NSString
-        let retval = selfNSString.stringByReplacingOccurrencesOfString(substringToStrip, withString: "")
+        let retval = selfNSString.replacingOccurrences(of: substringToStrip, with: "")
         
         return retval
     }

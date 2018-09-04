@@ -33,18 +33,18 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
     
     // MARK: Private properties
     
-    private let secsToShowAnswerFeedback = 1.0
+    fileprivate let secsToShowAnswerFeedback = 1.0
     
-    private var firstMin: Int = 1
-    private var firstMax: Int = 1
-    private var secondMin: Int = 1
-    private var secondMax: Int = 1
+    fileprivate var firstMin: Int = 1
+    fileprivate var firstMax: Int = 1
+    fileprivate var secondMin: Int = 1
+    fileprivate var secondMax: Int = 1
     
-    private var currentQuestion: MathQuestion!
-    private var numAnswered: Int = 0
-    private var numCorrect: Int = 0
+    fileprivate var currentQuestion: MathQuestion!
+    fileprivate var numAnswered: Int = 0
+    fileprivate var numCorrect: Int = 0
     
-    private var runCardsDelegate : RunCardsTextFieldDelegate?
+    fileprivate var runCardsDelegate : RunCardsTextFieldDelegate?
     
     //private let answerTextFieldDelegate: MathAnswerTextFieldDelegate = MathAnswerTextFieldDelegate()
 
@@ -52,8 +52,8 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
     // MARK: Public properties
 
     weak var userSelectons: UserSelections?
-    var answerColor: UIColor = UIColor.blackColor()
-    var answerCorrectionColor: UIColor = UIColor.redColor()
+    var answerColor: UIColor = UIColor.black
+    var answerCorrectionColor: UIColor = UIColor.red
     
     
     // MARK: Lifecycle
@@ -77,16 +77,16 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
         self.timer.delegate = self
         self.cardCount.delegate = self
         
-        self.timer.hidden = true
-        self.stopButton.hidden = false
+        self.timer.isHidden = true
+        self.stopButton.isHidden = false
         
         // Stylize some visuals
         
         self.cardView.layer.cornerRadius = 5
-        self.cardView.layer.borderColor = UIColor.blackColor().CGColor
+        self.cardView.layer.borderColor = UIColor.black.cgColor
         self.cardView.layer.borderWidth = 2.0
 
-        self.backgroundImage.image = UIImage(named: "bg\(Int.random(1...3))")
+        self.backgroundImage.image = UIImage(named: "bg\(Int.random(1..<4))")
         self.answerColor = self.answerField.textColor!
         
         self.answerField.maxNumDigits = 6
@@ -97,7 +97,7 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
 
         self.answerField.becomeFirstResponder()
 
@@ -108,20 +108,20 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
         if let timeLimit = self.userSelectons?.minuteLimit {
             if ( timeLimit > 0 ) {
                 // Use the user-selected time limit if applicable
-                self.timer.hidden = false
+                self.timer.isHidden = false
                 self.timer.setCountdown(minutes: timeLimit)
             }
             else {
                 // Otherwise, hide the timer but silently treack the time
                 // anyways for reporting.
-                self.timer.hidden = true
+                self.timer.isHidden = true
                 self.timer.setCountdown(minutes: 1000) // Just a really long time
             }
         }
     }
     
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         
         // Reset the data in case this view is reused
         self.numAnswered = 0
@@ -133,8 +133,8 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
         self.userSelectons = nil
         
         // Reset the view too where applicable
-        self.timer.hidden = true
-        self.stopButton.hidden = false
+        self.timer.isHidden = true
+        self.stopButton.isHidden = false
         
         // Just in case this is still going
         self.timer.stop()
@@ -163,7 +163,7 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
     
     // MARK: Actions
     
-    @IBAction func answerSubmitted(sender: AnyObject) {
+    @IBAction func answerSubmitted(_ sender: AnyObject) {
         
         if let submittedAnswer = Int(self.answerField.text!) {
             
@@ -175,7 +175,7 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
             let expected = self.currentQuestion.expectedAnswer
             
             if submittedAnswer == expected {
-                self.answerCorrectImage.hidden = false
+                self.answerCorrectImage.isHidden = false
                 self.numCorrect += 1
             }
             else {
@@ -184,10 +184,10 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
             }
             
             let delay = self.secsToShowAnswerFeedback * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
             
-            dispatch_after(time, dispatch_get_main_queue()) {
-                self.answerCorrectImage.hidden = true
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                self.answerCorrectImage.isHidden = true
                 self.answerField.textColor = self.answerColor
                 self.generateRandomMathProblem()
                 self.answerField.text = nil
@@ -199,17 +199,17 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
     }
     
     
-    @IBAction func dismiss(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismiss(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction func showResults(sender: AnyObject) {
+    @IBAction func showResults(_ sender: AnyObject) {
         
         // Done with the cards.  Clean up the view and report the results.
         
-        self.stopButton.hidden = true
-        self.timer.hidden = true
+        self.stopButton.isHidden = true
+        self.timer.isHidden = true
         self.timer.stop()
         
         self.resultTotalsLabel.text = "\(self.numCorrect) of \(self.numAnswered) correct"
@@ -235,12 +235,12 @@ class RunCardsViewController : UIViewController, CountdownDelegate, UpCounterDel
             }
         }
 
-        self.resultsView.hidden = false
+        self.resultsView.isHidden = false
         self.answerField.resignFirstResponder()
     }
     
     
-    @IBAction func invertAnswer(sender: AnyObject) {
+    @IBAction func invertAnswer(_ sender: AnyObject) {
         self.answerField.invertValue()
     }
     

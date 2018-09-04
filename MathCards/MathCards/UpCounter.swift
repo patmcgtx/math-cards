@@ -16,11 +16,11 @@ class UpCounter : UILabel {
     
     weak var delegate: UpCounterDelegate?
     
-    private var goal: Int?
-    private var currentCount: Int = 1
+    fileprivate var goal: Int?
+    fileprivate var currentCount: Int = 1
     
     
-    func reset(newGoal: Int?) {
+    func reset(_ newGoal: Int?) {
         
         self.currentCount = 1
         self.goal = newGoal
@@ -34,19 +34,23 @@ class UpCounter : UILabel {
         self.currentCount += 1
         self.updateText()
         
-        if ( self.goal > 0 && self.currentCount > self.goal ) {
+        let goalVal = self.goal ?? 0
+        
+        if ( goalVal > 0 && self.currentCount > goalVal ) {
             self.delegate?.countUpDidFinish()
         }
     }
     
     
-    private func updateText() {
+    fileprivate func updateText() {
         
-        if ( self.goal < 1 ) {
+        let goalVal = self.goal ?? 0
+        
+        if ( goalVal < 1 ) {
             self.text = "\(self.currentCount)"
         }
         else {
-            self.text = "\(self.currentCount) of \(self.goal!)"
+            self.text = "\(self.currentCount) of \(goalVal)"
         }
     }
     
