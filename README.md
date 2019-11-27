@@ -1,4 +1,4 @@
-A kids' bedtime app released a few years ago as [Continuous Math Cards ](https://www.roundtripsoftware.com/app/mathcards//).
+A flash card app released a few years ago as [Continuous Math Cards ](https://www.roundtripsoftware.com/app/mathcards//).
 
 Demo video:
 
