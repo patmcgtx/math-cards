@@ -1,6 +1,6 @@
 # Math Cards
 
-My first Swift app, circa 2015. Animated math flash cards for elementary school students (aka my kids).
+Archived code of my first Swift app, circa 2015. Animated math flash cards for elementary school students (aka my kids).
 
 Originally released as **Continuous Math Cards**.
 
