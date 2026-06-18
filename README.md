@@ -1,12 +1,25 @@
-A flash card app released a few years ago as [Continuous Math Cards ](https://www.roundtripsoftware.com/app/mathcards//).
+# Math Cards
 
-Demo video:
+My first Swift app, circa 2015. Animated math flash cards for elementary school students (aka my kids).
 
-[![Continuous Math Cards demo video](http://img.youtube.com/vi/CShJdcc51pg/0.jpg)](http://www.youtube.com/watch?v=CShJdcc51pg)
+Originally released as **Continuous Math Cards**.
 
-(No longer on the app store.)
+- Homepage: https://roundtripsoftware.wordpress.com/continuous-math-flash-cards/
+- Original app page: [Continuous Math Cards](https://www.roundtripsoftware.com/app/mathcards//)
+- Demo video: [YouTube demo](http://www.youtube.com/watch?v=CShJdcc51pg)
 
-Screenshots:
+## Tech info
+
+- **Language:** Swift (100%)
+- **Platform:** iOS
+- **Project vintage:** circa 2015
+- **App type:** animated math flash-card practice for elementary students
+
+## Status
+
+This app is no longer on the App Store.
+
+## Screenshots
 
 <img width="180" height="320" alt="mathcards-screen-iphone5-02" src="https://github.com/user-attachments/assets/8a40bf89-23ae-4ed7-b4b5-d7808e165c71" />
 <img width="180" height="320" alt="math-cards-options-iphone5-576x1024-1" src="https://github.com/user-attachments/assets/6a8a6613-d018-46dd-b596-0d2c1434d577" />
