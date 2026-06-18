@@ -4,9 +4,10 @@ Archived code of my first Swift app, circa 2015. Animated math flash cards for e
 
 Originally released as **Continuous Math Cards**.
 
-- Homepage: https://roundtripsoftware.wordpress.com/continuous-math-flash-cards/
-- Original app page: [Continuous Math Cards](https://www.roundtripsoftware.com/app/mathcards//)
+- More info at [Rounnd Trip Software](https://roundtripsoftware.wordpress.com/continuous-math-flash-cards/)
 - Demo video: [YouTube demo](http://www.youtube.com/watch?v=CShJdcc51pg)
+
+This app is no longer on the App Store.
 
 ## Tech info
 
@@ -14,10 +15,6 @@ Originally released as **Continuous Math Cards**.
 - **Platform:** iOS
 - **Project vintage:** circa 2015
 - **App type:** animated math flash-card practice for elementary students
-
-## Status
-
-This app is no longer on the App Store.
 
 ## Screenshots
 
