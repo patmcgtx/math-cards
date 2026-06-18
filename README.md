@@ -1,10 +1,8 @@
 # Math Cards
 
-Archived code of my first Swift app, circa 2015. Animated math flash cards for elementary school students (aka my kids).
+My first Swift app, circa 2015. Animated math flash cards for elementary school students (aka my kids).
 
-Released as **Continuous Math Cards**.
-
-- More info at [Round Trip Software](https://roundtripsoftware.wordpress.com/continuous-math-flash-cards/)
+- More info: [Round Trip Software - Continuous Math Cards](https://roundtripsoftware.wordpress.com/continuous-math-flash-cards/)
 - Demo video: [YouTube demo](http://www.youtube.com/watch?v=CShJdcc51pg)
 
 This app is no longer on the App Store.
